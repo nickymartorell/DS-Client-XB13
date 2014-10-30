@@ -12,8 +12,12 @@ public class Calender {
 		String tester = "mor";
 		String TEST = hehe.getUser();
 		
-		String TEST2 = hehe.setUser(tester);
+		hehe.setUser(tester);
+		
 		System.out.println(TEST);
+		
+		String TEST2 = hehe.getUser();
+		System.out.println(TEST2);
 	}
 	
 public Calender() {
