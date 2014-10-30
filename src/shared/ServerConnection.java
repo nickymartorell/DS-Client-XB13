@@ -1,5 +1,13 @@
 package shared;
 
 public class ServerConnection {
-//hej
+
+	public Object getCalendarObject() {
+		
+		return null;
+	}
+
+	
+	
+	
 }

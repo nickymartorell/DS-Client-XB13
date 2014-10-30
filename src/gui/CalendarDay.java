@@ -1,6 +1,6 @@
 package gui;
 
-public class CalenderDay {
+public class CalendarDay {
 //hej 
 	//hejhej
 }
