@@ -31,7 +31,7 @@ package gui;
 			catch (UnsupportedLookAndFeelException e) {}
 
 			//Prepare frame
-			frmMain = new JFrame ("Kalenderen"); //Create frame
+			frmMain = new JFrame ("Calendar"); //Create frame
 			frmMain.setSize(330, 375); //Set size to 400x400 pixels
 			pane = frmMain.getContentPane(); //Get content pane
 			pane.setLayout(null); //Apply null layout
