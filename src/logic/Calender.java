@@ -4,7 +4,6 @@ import shared.*;
 import shared.ServerConnection;
 
 public class Calender {
-//hej
 	public static void main (String[]args){
 		loginObj hehe = new loginObj();
 		
