@@ -3,7 +3,7 @@ package logic;
 import shared.*;
 import shared.ServerConnection;
 
-public class Calender {
+public class Calendar {
 //hej
 	public static void main (String[]args){
 		loginObj hehe = new loginObj();
@@ -20,7 +20,7 @@ public class Calender {
 		System.out.println(TEST2);
 	}
 	
-public Calender() {
+public Calendar() {
 	// TODO Auto-generated constructor stub
 }
 

@@ -12,7 +12,7 @@ public class Client {
 		
 		System.out.println("Client Running"); //hvis dette kommer frem, så kører programmet 
 		boolean userAuthenticated = false;
-		System.out.println("Hello dear user, please login");
+		System.out.println("Please login");
 		
 		while(!userAuthenticated){
 			System.out.println("User Email:");
