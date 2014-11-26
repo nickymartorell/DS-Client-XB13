@@ -3,8 +3,12 @@ package logic;
 import shared.*;
 import shared.ServerConnection;
 
+<<<<<<< HEAD:src/logic/Calendar.java
 public class Calendar {
 //hej
+=======
+public class Calender {
+>>>>>>> FETCH_HEAD:src/logic/Calender.java
 	public static void main (String[]args){
 		loginObj hehe = new loginObj();
 		
