@@ -11,6 +11,7 @@ import javax.swing.JButton;
 import javax.swing.JPanel;
 
 import logic.ActionController;
+import java.awt.Font;
 
 	public class CalendarDay {
 
@@ -53,12 +54,12 @@ import logic.ActionController;
 			frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 			frame.getContentPane().setLayout(null);
 			
-			JButton btnViewMonth = new JButton("View month");
-			btnViewMonth.setBounds(24, 18, 117, 29);
+			JButton btnViewMonth = new JButton("Month");
+			btnViewMonth.setBounds(24, 18, 65, 29);
 			frame.getContentPane().add(btnViewMonth);
 			
-			JButton btnViewWeek = new JButton("View week");
-			btnViewWeek.setBounds(294, 18, 117, 29);
+			JButton btnViewWeek = new JButton("Week");
+			btnViewWeek.setBounds(85, 18, 65, 29);
 			frame.getContentPane().add(btnViewWeek);
 			
 			JButton btnBack = new JButton("Back");
@@ -69,6 +70,21 @@ import logic.ActionController;
 			panel.setBackground(new Color(255, 105, 180));
 			panel.setBounds(34, 59, 377, 172);
 			frame.getContentPane().add(panel);
+			
+			JButton btnNewNote = new JButton("New note");
+			btnNewNote.setFont(new Font("Lucida Grande", Font.PLAIN, 10));
+			btnNewNote.setBounds(144, 18, 76, 29);
+			frame.getContentPane().add(btnNewNote);
+			
+			JButton btnDeleteCalendar = new JButton("Delete calendar");
+			btnDeleteCalendar.setFont(new Font("Lucida Grande", Font.PLAIN, 10));
+			btnDeleteCalendar.setBounds(214, 18, 104, 29);
+			frame.getContentPane().add(btnDeleteCalendar);
+			
+			JButton btnCreateCalendar = new JButton("Create calendar");
+			btnCreateCalendar.setFont(new Font("Lucida Grande", Font.PLAIN, 10));
+			btnCreateCalendar.setBounds(315, 18, 104, 29);
+			frame.getContentPane().add(btnCreateCalendar);
 			
 			
 			
