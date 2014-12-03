@@ -4,16 +4,18 @@ package gui;
 
 	//Import packages
 	import javax.swing.*;
-	import javax.swing.event.*;
-	import javax.swing.table.*;
-	import java.awt.*;
-	import java.awt.event.*;
-	import java.util.*;
+import javax.swing.event.*;
+import javax.swing.table.*;
+
+import java.awt.*;
+import java.awt.event.*;
+import java.util.*;
 
 	public class CalendarMonth{
 		static JLabel lblMonth, lblYear;
 		static JButton btnPrev, btnNext;
 		static JTable tblCalendar;
+		@SuppressWarnings("rawtypes")
 		static JComboBox cmbYear;
 		static JFrame frmMain;
 		static Container pane;
@@ -22,6 +24,7 @@ package gui;
 		static JPanel pnlCalendar;
 		static int realYear, realMonth, realDay, currentYear, currentMonth;
 
+		@SuppressWarnings("rawtypes")
 		public static void main (String args[]){
 			//Look and feel
 			try {UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());}
@@ -32,6 +35,8 @@ package gui;
 
 			//Prepare frame
 			frmMain = new JFrame ("Calendar"); //Create frame
+			frmMain.getContentPane().setBackground(new Color(255, 105, 180));
+			frmMain.setBackground(new Color(255, 105, 180));
 			frmMain.setSize(330, 375); //Set size to 400x400 pixels
 			pane = frmMain.getContentPane(); //Get content pane
 			pane.setLayout(null); //Apply null layout
@@ -43,10 +48,17 @@ package gui;
 			cmbYear = new JComboBox();
 			btnPrev = new JButton ("<<");
 			btnNext = new JButton (">>");
-			mtblCalendar = new DefaultTableModel(){public boolean isCellEditable(int rowIndex, int mColIndex){return false;}};
+			mtblCalendar = new DefaultTableModel(){/**
+				 * 
+				 */
+				private static final long serialVersionUID = 1L;
+
+			public boolean isCellEditable(int rowIndex, int mColIndex){return false;}};
 			tblCalendar = new JTable(mtblCalendar);
+			tblCalendar.setCellSelectionEnabled(true);
 			stblCalendar = new JScrollPane(tblCalendar);
 			pnlCalendar = new JPanel(null);
+			pnlCalendar.setBackground(new Color(255, 105, 180));
 
 			//Set border
 			pnlCalendar.setBorder(BorderFactory.createTitledBorder("Calendar"));
@@ -66,13 +78,13 @@ package gui;
 			pnlCalendar.add(stblCalendar);
 			
 			//Set bounds
-			pnlCalendar.setBounds(0, 0, 320, 335);
-			lblMonth.setBounds(160-lblMonth.getPreferredSize().width/2, 25, 100, 25);
-			lblYear.setBounds(10, 305, 80, 20);
+			pnlCalendar.setBounds(6, 6, 320, 335);
+			lblMonth.setBounds(129, 25, 63, 25);
+			lblYear.setBounds(10, 305, 93, 20);
 			cmbYear.setBounds(230, 305, 80, 20);
 			btnPrev.setBounds(10, 25, 50, 25);
 			btnNext.setBounds(260, 25, 50, 25);
-			stblCalendar.setBounds(10, 50, 300, 250);
+			stblCalendar.setBounds(9, 58, 300, 242);
 			
 			//Make frame visible
 			frmMain.setResizable(false);
@@ -155,6 +167,11 @@ package gui;
 		}
 
 		static class tblCalendarRenderer extends DefaultTableCellRenderer{
+			/**
+			 * 
+			 */
+			private static final long serialVersionUID = 1L;
+
 			public Component getTableCellRendererComponent (JTable table, Object value, boolean selected, boolean focused, int row, int column){
 				super.getTableCellRendererComponent(table, value, selected, focused, row, column);
 				if (column == 0 || column == 6){ //Week-end
