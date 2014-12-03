@@ -4,7 +4,7 @@ package gui;
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;
 
-import Logic.ActionController;
+import logic.ActionController;
 
 import java.awt.CardLayout;
 
@@ -28,7 +28,6 @@ public class Screen extends JFrame {
 	private Login Login;
 	private MainMenu mainMenu;
 	private Weather weather;
-	private JPanel panel;
 	private static CardLayout cl;
 	private CalendarDay calendarDay;
 	private CalendarMonth calendarMonth;
@@ -53,36 +52,16 @@ public class Screen extends JFrame {
 		calendarMonth = new CalendarMonth(actionController);
 		Login = new Login(actionController);
 		mainMenu = new MainMenu(actionController);
+		weather = new Weather(actionController);
 		
-		
-		
-		
-		
-		
-
-		
-	/*	calendarWeek = new CalendarWeek(actionController);
-		login = new Login(actionController);
-		calendarDay = new CalendarDay(actionController);
-		
-	
-		contentPane.add(login, LOGIN);
-		contentPane.add(calendarWeek, CALENDARWEEK);
 		contentPane.add(calendarDay, CALENDARDAY);
-		*/
+		contentPane.add(calendarWeek, CALENDARWEEK);
+		contentPane.add(calendarMonth, CALENDARMONTH);
+		contentPane.add(login, LOGIN);
+		contentPane.add(weather, WEATHER);
+		contentPane.add(mainMenu, MAINMENU);
 		
 		
-		
-	Login = new Login();
-	contentPane.add(Login, LOGIN);
-	
-	mainMenu = new MainMenu();
-	contentPane.add(mainMenu, MAINMENU);
-	
-	weather = new Weather();
-	contentPane.add(weather, WEATHER);
-	
-	cl = (CardLayout) getContentPane().getLayout();
 	}
 	
 	

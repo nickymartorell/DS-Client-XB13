@@ -1,10 +1,12 @@
 package logic;
 
 import java.awt.event.ActionEvent;
+
 import java.awt.event.ActionListener;
 
-import GUI.Screen;
 
+
+import gui.*;
 
 public class ClientAS {
 	
@@ -19,6 +21,9 @@ public class ClientAS {
 				Screen.show(Screen.MAINMENU);
 	
 
-}
+			}
 		}
+	}
+}
+	
 		

@@ -14,6 +14,8 @@ import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import java.util.Vector;
 
+import logic.ActionController;
+
 
 
 
@@ -58,6 +60,10 @@ public class Weather extends JPanel{
 		
 	}
 	
+	public Weather(ActionController actionController) {
+		// TODO Auto-generated constructor stub
+	}
+
 	public void NewTable(){
 		
 		navne = new Vector<Object>();
