@@ -76,7 +76,7 @@ public CalendarDay (ActionController actionController){
 	notes.setMaximumSize(new Dimension(1000,100));
 	notes.setPreferredSize(new Dimension(300, 100));
 	notes.setMinimumSize(new Dimension(1, 100));
-	notes.setVisible(false);
+	notes.setVisible(true);
 	event.add(notes, BorderLayout.EAST);
 	
 	
@@ -84,7 +84,7 @@ public CalendarDay (ActionController actionController){
 	noteText.setBackground(SystemColor.control);
 	noteText.setEditable(false);
 	noteText.setWrapStyleWord(true);
-	noteText.setVisible(false);
+	noteText.setVisible(true);
 	noteText.setLineWrap(true);
 	note.add(noteText);
 	
@@ -128,20 +128,20 @@ public CalendarDay (ActionController actionController){
 	info.add(WeatherText);
 	
 	createNote = new JButton("Create new note");
-	createNote.setVisible(false);
+	createNote.setVisible(true);
 	createNote.addActionListener(actionController);
 	createNote.setActionCommand(CREATENOTE);
 	info.add(createNote);
 	
 	deleteNote = new JButton("Delete note");
-	deleteNote.setVisible(false);
+	deleteNote.setVisible(true);
 	deleteNote.addActionListener(actionController);
 	deleteNote.setActionCommand(DELETENOTE);
 	info.add(deleteNote);
 	
 	setTextField = new JTextField();
 	setTextField.setText("add new note");
-	setTextField.setVisible(false);
+	setTextField.setVisible(true);
 	info.add(setTextField);
 	
 }
