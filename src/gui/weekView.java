@@ -16,13 +16,13 @@ import java.awt.event.MouseEvent;
 import javax.swing.SwingConstants;
 
 
-public class CalendarWeek extends JFrame {
+public class weekView extends JFrame {
 
 	private JPanel contentPane;
 	int today = Logic.getdayofmonth();
 	int offset =  0;
 	
-	public CalendarWeek() {
+	public weekView() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 850, 750);
 		contentPane = new JPanel();
