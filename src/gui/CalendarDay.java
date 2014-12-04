@@ -17,8 +17,8 @@ import javax.swing.SwingConstants;
 
 
 public class CalendarDay extends JFrame {
-
-	private JPanel contentPane;
+}
+/*	private JPanel contentPane;
 	int today = Logic.getdayofweek();
 	int offset =  0;
 	
@@ -261,5 +261,4 @@ class Days{
 		
 	}
 	
-	
-}
+	*/
