@@ -1,6 +1,254 @@
 package gui;
 
-	import java.awt.EventQueue;
+
+import javax.swing.JPanel;
+
+import logic.ActionController;
+
+import java.awt.BorderLayout;
+import java.awt.Dimension;
+import java.awt.GridLayout;
+
+import javax.swing.JLabel;
+import javax.swing.JScrollPane;
+import javax.swing.JTable;
+import javax.swing.JTextArea;
+import javax.swing.JTextField;
+import javax.swing.SwingConstants;
+import javax.swing.JButton;
+import javax.swing.border.Border;
+import javax.swing.border.EmptyBorder;
+import javax.swing.border.TitledBorder;
+import javax.swing.border.CompoundBorder;
+
+import java.awt.SystemColor;
+
+import javax.swing.border.SoftBevelBorder;
+import javax.swing.border.BevelBorder;
+import javax.swing.plaf.multi.MultiLabelUI;
+
+import java.awt.Color;
+
+public class CalendarDay extends JPanel{
+	
+	public static final String WEEK = "week";
+	public static final String NOTE = "note";
+	public static final String CREATENOTE = "createNote";
+	public static final String CREATEEVENT = "createEvent";
+	public static final String DELETEEVENT = "DeleteEvent";
+	public static final String DELETENOTE = "DeleteNote";
+	
+	private ActionController actionController;
+	private JLabel lblViewDay;
+	private JPanel event;
+	private JPanel activePanel;
+	private JTable TableEvent;
+	private JScrollPane ScrollEvent;
+	private JButton create;
+	private JButton delete;
+	private JButton backToWeek;
+	private JButton note;
+	private JButton createNote;
+	private JButton deleteNote;
+	private JTextArea WeatherText;
+	private JTextArea noteText;
+	private JTextField setTextField;
+	private JPanel panelBottom;
+	private JPanel info;
+	private JPanel notes;
+	
+
+
+public CalendarDay (ActionController actionController){
+	this.actionController = actionController;
+	setSize(Screen.WIDTH, Screen.HEIGHT);
+	setLayout(new BorderLayout());
+	
+	lblViewDay = new JLabel("Day view");
+	lblViewDay.setHorizontalAlignment(SwingConstants.CENTER);
+	add(lblViewDay, BorderLayout.NORTH);
+	
+	event = new JPanel();
+	add(event, BorderLayout.CENTER);
+	event.setLayout(new BorderLayout(0,0));
+	
+	notes = new JPanel();
+	notes.setMaximumSize(new Dimension(1000,100));
+	notes.setPreferredSize(new Dimension(300, 100));
+	notes.setMinimumSize(new Dimension(1, 100));
+	notes.setVisible(false);
+	event.add(notes, BorderLayout.EAST);
+	
+	
+	noteText = new JTextArea("");
+	noteText.setBackground(SystemColor.control);
+	noteText.setEditable(false);
+	noteText.setWrapStyleWord(true);
+	noteText.setVisible(false);
+	noteText.setLineWrap(true);
+	note.add(noteText);
+	
+	panelBottom = new JPanel();
+	add(panelBottom, BorderLayout.SOUTH);
+	panelBottom.setLayout(new BorderLayout(0,0));
+	
+	activePanel = new JPanel();
+	panelBottom.add(activePanel, BorderLayout.SOUTH);
+	
+	create = new JButton("Create new event");
+	create.addActionListener(actionController);
+	create.setActionCommand(CREATEEVENT);
+	activePanel.add(create);
+	
+	delete = new JButton ("Delete event");
+	delete.addActionListener(actionController);
+	delete.setActionCommand(DELETEEVENT);
+	activePanel.add(delete);
+	
+	backToWeek = new JButton ("back to week view");
+	backToWeek.addActionListener(actionController);
+	backToWeek.setActionCommand(WEEK);
+	activePanel.add(backToWeek);
+	
+	note = new JButton("View note");
+	note.addActionListener(actionController);
+	note.setActionCommand(NOTE);
+	activePanel.add(note);
+	
+	info = new JPanel();
+	info.setLayout(new GridLayout(0, 4, 0, 0));
+	panelBottom.add(info, BorderLayout.NORTH);
+	
+	
+	WeatherText = new JTextArea("");
+	WeatherText.setEditable(false);
+	WeatherText.setWrapStyleWord(true);
+	WeatherText.setLineWrap(true);
+	WeatherText.setBackground(SystemColor.control);
+	info.add(WeatherText);
+	
+	createNote = new JButton("Create new note");
+	createNote.setVisible(false);
+	createNote.addActionListener(actionController);
+	createNote.setActionCommand(CREATENOTE);
+	info.add(createNote);
+	
+	deleteNote = new JButton("Delete note");
+	deleteNote.setVisible(false);
+	deleteNote.addActionListener(actionController);
+	deleteNote.setActionCommand(DELETENOTE);
+	info.add(deleteNote);
+	
+	setTextField = new JTextField();
+	setTextField.setText("add new note");
+	setTextField.setVisible(false);
+	info.add(setTextField);
+	
+}
+
+public void updateEvents(object [][] data, String[] header){
+	if(TableEvent != null){
+		event.remove(TableEvent);
+		event.remove(ScrollEvent);
+	}
+	TableEvent = new JTable(data, header);
+	TableEvent.setPreferredScrollableViewportSize(new Dimension(800,70));
+	TableEvent.setFillsViewportHeight(true);
+	
+	ScrollEvent = new JScrollPane(TableEvent);
+	ScrollEvent.setBounds(26, 30, 930, 280);
+	event.add(ScrollEvent);
+	
+	}
+
+	public void removeTable(){
+		event.remove(TableEvent);
+		event.remove(ScrollEvent);
+	}
+
+	public JLabel getlblViewDay(){
+		return lblViewDay;
+	}
+	
+	public void setlblViewDay(JLabel lblViewDay){
+		this.lblViewDay = lblViewDay;
+	}
+
+	public JPanel getevent(){
+		return event;
+	}
+	
+	public void setevent(JPanel event){
+		this.event = event;
+	}
+	
+	public JPanel activePanel(){
+		return activePanel;
+	}
+	
+	public void setactivePanel(){
+		this.activePanel = activePanel;
+	}
+	
+	public JTextArea getWeatherText(){
+		return WeatherText;
+	}
+	
+	public void setWeatherText(JTextArea WeatherText){
+		this.WeatherText = WeatherText;
+	}
+	
+	public JTextArea getnoteText(){
+		return noteText;
+	}
+	
+	public void setNoteText(JTextArea noteText){
+		this.noteText  = noteText;
+	}
+	
+	public JButton getcreateNote(){
+		return createNote;
+	}
+	
+	public void setcreateNote(JButton createNote){
+		this.createNote = createNote;
+	}
+	
+	public JTextField getTextField(){
+		return setTextField;
+	}
+	public void setSetTextField(JTextField setTextField){
+		this.setTextField = setTextField;
+	}
+	
+	public JPanel getnotes(){
+		return notes;
+	}
+	
+	public void setnotes(JPanel notes){
+		this.notes = notes;
+	}
+	
+	public JButton getdeleteNote(){
+		return deleteNote;
+	}
+	
+	public void setdeleteNote(JButton deleteNote){
+		this.deleteNote = deleteNote;
+	}
+	
+	
+	
+/*	
+
+	*/
+}
+
+	
+
+
+	/*import java.awt.EventQueue;
+
 
 	import javax.swing.JFrame;
 import javax.swing.JTable;
@@ -15,11 +263,11 @@ import java.awt.Font;
 
 	public class CalendarDay {
 
-		private JFrame frame;
+		JFrame frame;
 
-		/**
+		*//**
 		 * Launch the application.
-		 */
+		 *//*
 		public static void main(String[] args) {
 			EventQueue.invokeLater(new Runnable() {
 				public void run() {
@@ -33,9 +281,9 @@ import java.awt.Font;
 			});
 		}
 
-		/**
+		*//**
 		 * Create the application.
-		 */
+		 *//*
 		public CalendarDay() {
 			initialize();
 		}
@@ -44,9 +292,9 @@ import java.awt.Font;
 			// TODO Auto-generated constructor stub
 		}
 
-		/**
+		*//**
 		 * Initialize the contents of the frame.
-		 */
+		 *//*
 		private void initialize() {
 			frame = new JFrame("Calendar");
 			frame.getContentPane().setBackground(new Color(199, 21, 133));
@@ -91,5 +339,5 @@ import java.awt.Font;
 			
 		}
 	}
-
+*/
 
