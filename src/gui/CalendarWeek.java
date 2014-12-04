@@ -17,6 +17,7 @@ import javax.swing.SwingConstants;
 
 
 public class CalendarWeek extends JFrame {
+	
 
 	private JPanel contentPane;
 	int today = Logic.getdayofmonth();
