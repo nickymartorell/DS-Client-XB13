@@ -31,9 +31,15 @@ import java.awt.Color;
 
 public class CalendarDay extends JPanel{
 	
-	/**
+}
+	/*
+	*//**
 	 * 
+<<<<<<< Updated upstream
 	 
+=======
+	 *//*
+>>>>>>> Stashed changes
 	private static final long serialVersionUID = 1L;
 	public static final String WEEK = "week";
 	public static final String NOTE = "note";
@@ -227,11 +233,11 @@ public void updateEvents(object [][] data, String[] header){
 		this.deleteNote = deleteNote;
 	}
 	
-	
+	*/
 	
 /*	
 
-	*/
+	
 }
 
 	
