@@ -12,10 +12,13 @@ public class Screen extends JFrame {
 	
 	private static final long serialVersionUID = 1L;
 	public static final String LOGIN = "LOGIN";
+	public static final String MAINMENU = "MAINMENU";
 	
 	
 	private JPanel contentPane;
 	public Login login;
+	private MainMenu mainMenu;
+	
 	
 	CardLayout c;
 	
@@ -23,7 +26,7 @@ public class Screen extends JFrame {
 		setTitle("CBS Calendar");
 		setResizable(false);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 1366, 768);
+		setBounds(100, 100, 450, 600);
 		contentPane = new JPanel();
 		contentPane.setBorder(null);
 		setContentPane(contentPane);
@@ -31,6 +34,10 @@ public class Screen extends JFrame {
 		
 		login = new Login();
 		contentPane.add(login, LOGIN);
+		
+		mainMenu = new MainMenu();
+		contentPane.add(mainMenu, MAINMENU);
+		
 		
 		c = (CardLayout) getContentPane().getLayout();
 
@@ -40,6 +47,10 @@ public class Screen extends JFrame {
 	public Login getLogin(){
 		return login;
 	}
+	public MainMenu getMainMenu() {
+	return mainMenu;
+	}
+
 	public void show(String card) {
 		c.show(getContentPane(),  card);
 	}
