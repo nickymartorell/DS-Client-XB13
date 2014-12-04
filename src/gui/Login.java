@@ -1,9 +1,6 @@
 package gui;
 
-
-
 //import af komponenter til at bygge vinduer
-
 import java.awt.*;
 import java.awt.event.ActionListener;
 
@@ -13,10 +10,6 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.JPasswordField;
 
-import logic.ActionController;
-
-import java.awt.event.ActionEvent;
-
 
 
 public class Login extends JPanel{
@@ -24,15 +17,17 @@ public class Login extends JPanel{
 	private static final long serialVersionUID = 1L;
 	
 	//der oprettes instansvariable til de forskellige elementer, fx knapper, tekstfelter og overskrifter
+	public static void main(String[] args){
 	
-	private JLabel lblWelcome;
-	private JLabel lblLogInHere;
-	private JLabel lblUsername;
-	private JLabel lblPassword;
-	private JLabel lblWrongPass;
-	private JButton btnLogIn;
-	private JPasswordField enterPassword;
-	private JTextField enterUsername;
+	}
+	private final JLabel lblWelcome;
+	private final JLabel lblLogInHere;
+	private  final JLabel lblUsername;
+	private final JLabel lblPassword;
+	private final JLabel lblWrongPass;
+	private final JButton btnLogIn;
+	private final JPasswordField enterPassword;
+	private final JTextField enterUsername;
 	
 	//her bliver udseende tilfoejet til de forskellige variable, bliver gjort via konstruktorer
 	
@@ -40,11 +35,14 @@ public class Login extends JPanel{
 		setForeground(new Color(0, 0, 255));
 		setBackground(new Color(199, 21, 133)); //staerk pink farve
 		setLayout(null);
+
 		
 		lblWelcome = new JLabel("Welcome to CBS calendar");
 		lblWelcome.setForeground(new Color(255, 192, 203)); // baby lyseroedfarve
 		lblWelcome.setBounds(86, 23, 277, 29);
 		lblWelcome.setFont(new Font("Tahoma", Font.BOLD, 20));
+		lblWelcome.setCursor(Cursor.getPredefinedCursor(Cursor.N_RESIZE_CURSOR));
+
 		add(lblWelcome);
 		
 		lblLogInHere = new JLabel ("Please log in here");
@@ -84,10 +82,7 @@ public class Login extends JPanel{
 		add(enterUsername);
 		
 		btnLogIn = new JButton("Login");
-		btnLogIn.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-			}
-		});
+	
 		btnLogIn.setForeground(new Color(255, 192, 203));
 		btnLogIn.setBounds(180, 238, 83, 29);
 		btnLogIn.setFont(new Font("Tahoma", Font.BOLD, 14));
@@ -96,14 +91,12 @@ public class Login extends JPanel{
 	
 }
 	
-	public Login(ActionController actionController) {
-		// TODO Auto-generated constructor stub
-	}
+	
+	
 
 	//der skal tilføjes actionlisteners for at der sker noget ved tryk paa knapper
 	public void addActionListener (ActionListener l){
 		btnLogIn.addActionListener(l);
-		btnLogIn.setActionCommand("LogInBtn");
 	}
 	
 	//textfield skal nulstilles efter brug
