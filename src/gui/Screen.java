@@ -14,12 +14,15 @@ public class Screen extends JFrame {
 	public static final String LOGIN = "LOGIN";
 	public static final String MAINMENU = "MAINMENU";
 	public static final String CALENDARDAY = "CALENDARDAY";
+	public static final String WEATHER = "WEATHER";
+	
 	
 	
 	private JPanel contentPane;
 	public Login login;
 	private MainMenu mainMenu;
 	private CalendarDay calendarDay;
+	private Weather weather;
 	
 	
 	CardLayout c;
@@ -43,6 +46,10 @@ public class Screen extends JFrame {
 		calendarDay = new CalendarDay();
 		contentPane.add(calendarDay, CALENDARDAY);
 		
+		weather = new Weather();
+		contentPane.add(weather, WEATHER);
+		
+		
 		
 		c = (CardLayout) getContentPane().getLayout();
 
@@ -61,6 +68,9 @@ public class Screen extends JFrame {
 	}
 	public CalendarDay getCalendarDay(){
 		return calendarDay;
+	}
+	public Weather getWeather() {
+	return weather;
 	}
 
 }

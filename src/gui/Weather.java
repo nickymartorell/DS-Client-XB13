@@ -41,11 +41,6 @@ public class Weather extends JPanel{
 		
 		btnMenu = new JButton ("Back to menu");
 		btnMenu.setBounds(124, 242, 208, 29);
-		btnMenu.addActionListener(new ActionListener(){
-			public void actionPerformed(ActionEvent x){
-			}
-			
-		});
 		add(btnMenu);
 		
 		weather = new JLabel("Weatherforecast");
@@ -78,8 +73,47 @@ public class Weather extends JPanel{
 	
 	public void addActionListener(ActionListener z){
 		btnMenu.addActionListener(z);
-		btnMenu.setActionCommand("MenuBtn");
 		
+	}
+
+	public Vector<Object> getNavne() {
+		return navne;
+	}
+
+	public void setNavne(Vector<Object> navne) {
+		this.navne = navne;
+	}
+
+	public JButton getBtnMenu() {
+		return btnMenu;
+	}
+
+	public void setBtnMenu(JButton btnMenu) {
+		this.btnMenu = btnMenu;
+	}
+
+	public JScrollPane getScroll() {
+		return scroll;
+	}
+
+	public void setScroll(JScrollPane scroll) {
+		this.scroll = scroll;
+	}
+
+	public JLabel getWeather() {
+		return weather;
+	}
+
+	public void setWeather(JLabel weather) {
+		this.weather = weather;
+	}
+
+	public JTable getTable() {
+		return table;
+	}
+
+	public void setTable(JTable table) {
+		this.table = table;
 	}
 		
 	
