@@ -9,7 +9,6 @@ import logic.ActionController;
 
 import java.awt.Color;
 import java.awt.event.ActionListener;
-import java.awt.event.ActionEvent;
 
 
 public class MainMenu extends JPanel{
@@ -75,20 +74,74 @@ public class MainMenu extends JPanel{
 	
 	}
 	
-	public MainMenu(ActionController actionController) {
-		// TODO Auto-generated constructor stub
-	}
 
 	public void addActionListener(ActionListener l){
 		viewCalendar.addActionListener(l);
-		viewCalendar.setActionCommand("CalendarView");
 		QOTD.addActionListener(l);
-		QOTD.setActionCommand("quote");
 		weather.addActionListener(l);
-		weather.setActionCommand("btnWeather");
 		logOut.addActionListener(l);
-		logOut.setActionCommand("btnLogout");
 		
 		
 	}
+
+
+	public JLabel getLblWelcome() {
+		return lblWelcome;
+	}
+
+
+	public void setLblWelcome(JLabel lblWelcome) {
+		this.lblWelcome = lblWelcome;
+	}
+
+
+	public JButton getViewCalendar() {
+		return viewCalendar;
+	}
+
+
+	public void setViewCalendar(JButton viewCalendar) {
+		this.viewCalendar = viewCalendar;
+	}
+
+
+	public JButton getLogOut() {
+		return logOut;
+	}
+
+
+	public void setLogOut(JButton logOut) {
+		this.logOut = logOut;
+	}
+
+
+	public JButton getQOTD() {
+		return QOTD;
+	}
+
+
+	public void setQOTD(JButton qOTD) {
+		QOTD = qOTD;
+	}
+
+
+	public JButton getWeather() {
+		return weather;
+	}
+
+
+	public void setWeather(JButton weather) {
+		this.weather = weather;
+	}
+
+
+	public JTextArea getQuote() {
+		return Quote;
+	}
+
+
+	public void setQuote(JTextArea quote) {
+		Quote = quote;
+	}
+	
 }

@@ -17,7 +17,7 @@ public class ActionController  {
 				screen = new Screen();
 				
 				screen.getLogin().addActionListener(new LoginActionListener());
-				
+				screen.getMainMenu().addActionListener(new MainMenuActionListener());
 				
 			}
 		
@@ -31,8 +31,16 @@ public class ActionController  {
 					screen.show(Screen.MAINMENU);
 				}
 			}
+			private class MainMenuActionListener implements ActionListener{
+			public void actionPerformed(ActionEvent e){
+				if (e.getSource() == screen.getMainMenu().getViewCalendar()){
+					screen.show(Screen.CALENDARDAY);
+				}
+			}
 
 	
 			
 
 }
+}
+

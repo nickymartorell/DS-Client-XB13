@@ -13,11 +13,13 @@ public class Screen extends JFrame {
 	private static final long serialVersionUID = 1L;
 	public static final String LOGIN = "LOGIN";
 	public static final String MAINMENU = "MAINMENU";
+	public static final String CALENDARDAY = "CALENDARDAY";
 	
 	
 	private JPanel contentPane;
 	public Login login;
 	private MainMenu mainMenu;
+	private CalendarDay calendarDay;
 	
 	
 	CardLayout c;
@@ -38,6 +40,9 @@ public class Screen extends JFrame {
 		mainMenu = new MainMenu();
 		contentPane.add(mainMenu, MAINMENU);
 		
+		calendarDay = new CalendarDay();
+		contentPane.add(calendarDay, CALENDARDAY);
+		
 		
 		c = (CardLayout) getContentPane().getLayout();
 
@@ -53,6 +58,9 @@ public class Screen extends JFrame {
 
 	public void show(String card) {
 		c.show(getContentPane(),  card);
+	}
+	public CalendarDay getCalendarDay(){
+		return calendarDay;
 	}
 
 }

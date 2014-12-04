@@ -31,6 +31,10 @@ import java.awt.Color;
 
 public class CalendarDay extends JPanel{
 	
+	/**
+	 * 
+	 
+	private static final long serialVersionUID = 1L;
 	public static final String WEEK = "week";
 	public static final String NOTE = "note";
 	public static final String CREATENOTE = "createNote";
@@ -38,7 +42,6 @@ public class CalendarDay extends JPanel{
 	public static final String DELETEEVENT = "DeleteEvent";
 	public static final String DELETENOTE = "DeleteNote";
 	
-	private ActionController actionController;
 	private JLabel lblViewDay;
 	private JPanel event;
 	private JPanel activePanel;
@@ -59,8 +62,7 @@ public class CalendarDay extends JPanel{
 	
 
 
-public CalendarDay (ActionController actionController){
-	this.actionController = actionController;
+public CalendarDay (){
 	setSize(Screen.WIDTH, Screen.HEIGHT);
 	setLayout(new BorderLayout());
 	
@@ -96,23 +98,15 @@ public CalendarDay (ActionController actionController){
 	panelBottom.add(activePanel, BorderLayout.SOUTH);
 	
 	create = new JButton("Create new event");
-	create.addActionListener(actionController);
-	create.setActionCommand(CREATEEVENT);
 	activePanel.add(create);
 	
 	delete = new JButton ("Delete event");
-	delete.addActionListener(actionController);
-	delete.setActionCommand(DELETEEVENT);
 	activePanel.add(delete);
 	
 	backToWeek = new JButton ("back to week view");
-	backToWeek.addActionListener(actionController);
-	backToWeek.setActionCommand(WEEK);
 	activePanel.add(backToWeek);
 	
 	note = new JButton("View note");
-	note.addActionListener(actionController);
-	note.setActionCommand(NOTE);
 	activePanel.add(note);
 	
 	info = new JPanel();
@@ -129,14 +123,10 @@ public CalendarDay (ActionController actionController){
 	
 	createNote = new JButton("Create new note");
 	createNote.setVisible(true);
-	createNote.addActionListener(actionController);
-	createNote.setActionCommand(CREATENOTE);
 	info.add(createNote);
 	
 	deleteNote = new JButton("Delete note");
 	deleteNote.setVisible(true);
-	deleteNote.addActionListener(actionController);
-	deleteNote.setActionCommand(DELETENOTE);
 	info.add(deleteNote);
 	
 	setTextField = new JTextField();
