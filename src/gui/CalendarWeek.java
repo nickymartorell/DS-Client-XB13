@@ -86,7 +86,6 @@ private static String days[] = { "MONDAY", "TUESDAY", "WEDNESDAY", "THURSDAY", "
 	
 	
 			calendarPanel = new JPanel(new GridLayout(0, 7));
-			calendarPanel.setVisible(true);
 			add(calendarPanel, BorderLayout.CENTER);
 			
 			for (int b = 0; b < btnDate.length; b++) {

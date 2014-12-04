@@ -40,25 +40,27 @@ public class MainMenu extends JPanel{
 	
 	viewCalendar = new JButton("View Calendar");
 	viewCalendar.setForeground(new Color(0, 0, 0));
-	viewCalendar.setBackground(new Color(199, 21, 133));
+	viewCalendar.setBackground(new Color(255, 240, 245));
 	
 	viewCalendar.setBounds(162, 83, 123, 29);
 	viewCalendar.setFont(new Font("Tahoma", Font.PLAIN, 14));
 	add(viewCalendar);
 
 	QOTD = new JButton ("Get your qoute of the day!");
+	QOTD.setBackground(new Color(255, 240, 245));
 	QOTD.setBounds(121, 165, 208, 29);
 	QOTD.setFont(new Font("Tahoma", Font.PLAIN, 14));
 	add(QOTD);
 	
 	weather = new JButton("Weatherforecast");
 	weather.setForeground(new Color(0, 0, 0));
-	weather.setBackground(new Color(255, 228, 225));
+	weather.setBackground(new Color(255, 240, 245));
 	weather.setBounds(149, 124, 152, 29);
 	weather.setFont(new Font("Tahoma", Font.PLAIN, 14));
 	add(weather);
 	
 	logOut = new JButton("Log out");
+	logOut.setBackground(new Color(255, 240, 245));
 	logOut.setBounds(177, 251, 92, 29);
 	logOut.setFont(new Font("Tahoma", Font.PLAIN, 14));
 	add(logOut);
