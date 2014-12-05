@@ -23,7 +23,7 @@ public class CreateNote extends JPanel{
 		CreateNote = new JLabel("Let's make some new notes!");
 		CreateNote.setBounds(34, 23, 381, 25);
 		CreateNote.setForeground(new Color(255, 192, 203));
-		CreateNote.setFont(new Font("Dialog", Font.BOLD, 25));
+		CreateNote.setFont(new Font("Tahoma", Font.BOLD, 25));
 		add(CreateNote);
 		
 		back = new JButton ("Back to calendar");
