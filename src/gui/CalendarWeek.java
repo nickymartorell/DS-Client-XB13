@@ -15,6 +15,8 @@ import java.awt.event.MouseEvent;
 
 import javax.swing.SwingConstants;
 
+import logic.Logic;
+
 
 public class CalendarWeek extends JFrame {
 	
