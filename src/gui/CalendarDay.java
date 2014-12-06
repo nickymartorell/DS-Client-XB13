@@ -37,8 +37,6 @@ public CalendarDay() {
 
     // Initialize GregorianCalendar
     GregorianCalendar cal = new GregorianCalendar();
-    int currYear = cal.get(GregorianCalendar.YEAR);
-    int currDOM = cal.get(GregorianCalendar.DAY_OF_MONTH);
     int currMnth = cal.get(GregorianCalendar.MONTH);
     currentMonth = currMnth;
     String StringMnth = "";
@@ -58,9 +56,8 @@ public CalendarDay() {
         case 11: StringMnth = "November"; break;
         case 12: StringMnth = "December"; break;
     }
-    int nod, som;
+    int som;
     cal.set(GregorianCalendar.DATE, 1);
-    nod = cal.getActualMaximum(GregorianCalendar.DAY_OF_MONTH); //Number of Days
     som = (cal.get(GregorianCalendar.DAY_OF_WEEK) - GregorianCalendar.SUNDAY + 7)%7; // Start of the Month
 
     // Button Layout
@@ -68,11 +65,10 @@ public CalendarDay() {
     final int COLS = 7;
     JButton[][] days;
     
-    //HER !! 
+ 
     
     String[] columnNames = {"Time"};
-   	Object[] JTable;
-	Object[][] data = {
+   	Object[][] data = {
    		//	{"Time", "Mon " + MonDay, 
    		//		"Tue " + TueDay, "Wed " + WedDay, 
    		//		"Thu" + ThuDay, "Fri " + FriDay, "Sat " + SatDay, "Sun " + SunDay},
@@ -106,7 +102,7 @@ public CalendarDay() {
     
    	JTable tabel = new JTable(data, columnNames);		
    	tabel.setRowHeight(20);
-   	tabel.setBounds(0, 6, 313, 494);
+   	tabel.setBounds(154, 6, 313, 494);
    	tabel.setFillsViewportHeight(true);
    	tabel.setColumnSelectionAllowed(true);
    	tabel.setCellSelectionEnabled(true);
