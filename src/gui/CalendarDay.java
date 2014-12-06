@@ -1,94 +1,165 @@
-import java.awt.BorderLayout;
+package gui;
+
+
 import java.awt.Dimension;
 import java.awt.Font;
-import java.awt.GridLayout;
 
-import javax.swing.JLabel;
-import javax.swing.JPanel;
-import javax.swing.JScrollPane;
-import javax.swing.JTable;
-import javax.swing.JTextArea;
-import javax.swing.JTextField;
-import javax.swing.SwingConstants;
-import javax.swing.JButton;
-import javax.swing.border.EmptyBorder;
-import javax.swing.border.TitledBorder;
-import javax.swing.border.CompoundBorder;
-
-import java.awt.SystemColor;
-
-import javax.swing.border.SoftBevelBorder;
+import javax.swing.*;
 import javax.swing.border.BevelBorder;
-import javax.swing.plaf.multi.MultiLabelUI;
+import javax.swing.border.CompoundBorder;
+import javax.swing.border.MatteBorder;
+
+import logic.ActionController;
 
 import java.awt.Color;
+import java.awt.event.ActionListener;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+import java.sql.SQLException;
+
 
 public class CalendarDay extends JPanel{
-	
+		
+	/**
+	 * 
+	 */
 	private static final long serialVersionUID = 1L;
-	public static final String WEEK = "week";
-	public static final String NOTE = "note";
-	public static final String SET = "set";
-	public static final String CREATEEVE = "createeve";
-	public static final String DELETEEVE = "deleteeve";
-	public static final String DELNOTE = "delnote";
+	private boolean DEBUG = false;
+	private JLabel lblWelcome;
+	private JButton viewCalendar;
+	private JButton weather;
+	private JButton btnCalendarWeekView;
+	private JButton btnMainMenu;
+	public static JFrame frame;
+	public String urObjctInCell;
+
+
 	
-	private JLabel lblDayView;
-//	private JScrollPane eventScroll;
-	private JButton btnCreate;
-	private JButton btnDelete;
-	private JButton btnBack;
-	private JButton btnNote;
-	private JButton btnnewNote;
-	private JButton btnDelNote;
-	//private JTextArea forecastTxt;
-	//private JTextArea noteTxt;;
-	
+
 	public CalendarDay(){
 		
-		setBackground(new Color(199, 21, 133));
+	setBackground(new Color(199, 21, 133));
 		setLayout(null);
 		
-		lblDayView = new JLabel("Hello, here's your calendar!");
-		lblDayView.setBounds(48, 23, 354, 25);
-		lblDayView.setForeground(new Color(255, 192, 203));
-		lblDayView.setFont(new Font("Tahoma", Font.BOLD, 25));
-		add(lblDayView);
-		
-		btnBack = new JButton ("Back to menu");
-		btnBack.setBounds(149, 229, 152, 29);
-		btnBack.setForeground(new Color(255, 192, 203));
-		btnBack.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		add(btnBack);
-		
-		btnCreate = new JButton("Create new event");
-		btnCreate.setForeground(new Color(255, 192, 203));
-		btnCreate.setBounds(149, 206, 152, 29);
-		btnCreate.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		add(btnCreate);
-		
-		btnDelete = new JButton("Delete event");
-		btnDelete.setForeground(new Color(255, 192, 203));
-		btnDelete.setBounds(252, 176, 106, 29);
-		btnDelete.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		add(btnDelete);
-		
-		btnNote = new JButton("View note");
-		btnNote.setForeground(new Color(255, 192, 203));
-		btnNote.setBounds(252, 146, 106, 29);
-		btnNote.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		add(btnNote);
-		
-		btnnewNote = new JButton("Create new note");
-		btnnewNote.setForeground(new Color(255, 192, 203));
-		btnnewNote.setBounds(252, 124, 106, 29);
-		btnnewNote.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		add(btnnewNote);
-		
-		btnDelNote = new JButton("Delete note");
-		btnDelNote.setForeground(new Color(255, 192, 203));
-		btnDelNote.setBounds(222, 72, 136, 29);
-		btnDelNote.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		add(btnDelNote);
+	lblWelcome = new JLabel("Day view");
+	lblWelcome.setForeground(new Color(255, 192, 203));
+	lblWelcome.setBounds(268, 23, 106, 25);
+	lblWelcome.setFont(new Font("Tahoma", Font.BOLD, 20));
+	add(lblWelcome);
+	
+	viewCalendar = new JButton("AddNote");
+	viewCalendar.setForeground(new Color(0, 0, 0));
+	viewCalendar.setBackground(new Color(255, 240, 245));
+	
+	viewCalendar.setBounds(495, 68, 130, 29);
+	viewCalendar.setFont(new Font("Tahoma", Font.PLAIN, 14));
+	add(viewCalendar);
+	
+	weather = new JButton("Delete event");
+	weather.setForeground(new Color(0, 0, 0));
+	weather.setBackground(new Color(255, 240, 245));
+	weather.setBounds(495, 148, 130, 29);
+	weather.setFont(new Font("Tahoma", Font.PLAIN, 14));
+	add(weather);
+	
+	
+
+	btnCalendarWeekView = new JButton("Delete Note");
+	btnCalendarWeekView.setForeground(Color.BLACK);
+	btnCalendarWeekView.setFont(new Font("Tahoma", Font.PLAIN, 14));
+	btnCalendarWeekView.setBackground(new Color(255, 240, 245));
+	btnCalendarWeekView.setBounds(495, 108, 130, 29);
+	add(btnCalendarWeekView);
+	
+	btnMainMenu = new JButton("Main menu");
+	btnMainMenu.setForeground(Color.BLACK);
+	btnMainMenu.setFont(new Font("Tahoma", Font.PLAIN, 14));
+	btnMainMenu.setBackground(new Color(255, 240, 245));
+	btnMainMenu.setBounds(495, 188, 130, 29);
+	add(btnMainMenu);
+	String[] columnNames = { "id","Type", "Location", "Start", "End", "description", "aktiv" };
+
+	Object[][] data = new Object[300][300];
+
+	final JTable table = new JTable(data, columnNames);
+	table.setSurrendersFocusOnKeystroke(true);
+	table.setPreferredScrollableViewportSize(new Dimension(500, 100));
+	table.setFillsViewportHeight(true);
+	table.setRowSelectionAllowed(true);
+	table.addMouseListener(new MouseAdapter() {
+	public void mouseClicked(final MouseEvent e) {
+		final JTable target = (JTable)e.getSource();
+	    int row = target.getSelectedRow();
+	    //column sat til 0 for altid at bruge id
+	     urObjctInCell = (String)target.getValueAt(row, 0);
+	     System.out.println(urObjctInCell);                         
 	}
+	}); 
+	
+	if (DEBUG) {
+        table.addMouseListener(new MouseAdapter() {
+            public void mouseClicked(MouseEvent e) {
+                printDebugData(table);
+            }
+        });
+    }
+	
+
+	JScrollPane scrollPane = new JScrollPane(table);
+	scrollPane.setBorder(new CompoundBorder(new BevelBorder(
+			BevelBorder.LOWERED, new Color(0, 0, 205), new Color(255, 255,
+					255), new Color(0, 0, 205), new Color(255, 255, 255)),
+			new MatteBorder(1, 1, 1, 1, (Color) new Color(255, 255, 255))));
+	scrollPane.setViewportBorder(new CompoundBorder(new BevelBorder(
+			BevelBorder.LOWERED, new Color(0, 0, 205), new Color(255, 255,
+					255), new Color(0, 0, 205), new Color(255, 255, 255)),
+			null));
+	scrollPane.setBounds(10, 59, 474, 361);
+
+	// Add the scroll pane to this panel.
+	add(scrollPane);
+	}
+	
+
+	private void printDebugData(JTable table) {
+        int numRows = table.getRowCount();
+        int numCols = table.getColumnCount();
+        javax.swing.table.TableModel model = table.getModel();
+ 
+        System.out.println("Value of data: ");
+        for (int i=0; i < numRows; i++) {
+            System.out.print("    row " + i + ":");
+            for (int j=0; j < numCols; j++) {
+                System.out.print("  " + model.getValueAt(i, j));
+            }
+            System.out.println();
+        }
+        System.out.println("--------------------------");
+    }
+	public JButton getViewCalendar() {
+		return viewCalendar;
+	}
+	public void setViewCalendar(JButton viewCalendar) {
+		this.viewCalendar = viewCalendar;
+	}
+	public JButton getWeather() {
+		return weather;
+	}
+	public void setWeather(JButton weather) {
+		this.weather = weather;
+	}
+	public JButton getBtnCalendarWeekView() {
+		return btnCalendarWeekView;
+	}
+	public void setBtnCalendarWeekView(JButton btnCalendarWeekView) {
+		this.btnCalendarWeekView = btnCalendarWeekView;
+	}
+	public JButton getBtnMainMenu() {
+		return btnMainMenu;
+	}
+	public void setBtnMainMenu(JButton btnMainMenu) {
+		this.btnMainMenu = btnMainMenu;
+	}
+	
 }
+	

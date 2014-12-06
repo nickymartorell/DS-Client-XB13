@@ -33,43 +33,50 @@ public class MainMenu extends JPanel{
 		
 	lblWelcome = new JLabel("MENU");
 	lblWelcome.setForeground(new Color(255, 192, 203));
-	lblWelcome.setBounds(192, 23, 65, 25);
+	lblWelcome.setBounds(257, 89, 65, 25);
 	lblWelcome.setFont(new Font("Tahoma", Font.BOLD, 20));
 	add(lblWelcome);
 	
-	viewCalendar = new JButton("View Calendar");
+	viewCalendar = new JButton("Calendar day view");
 	viewCalendar.setForeground(new Color(0, 0, 0));
 	viewCalendar.setBackground(new Color(255, 240, 245));
 	
-	viewCalendar.setBounds(162, 83, 123, 29);
+	viewCalendar.setBounds(181, 146, 208, 29);
 	viewCalendar.setFont(new Font("Tahoma", Font.PLAIN, 14));
 	add(viewCalendar);
 
-	QOTD = new JButton ("Get your qoute of the day!");
+	QOTD = new JButton ("Quote:");
 	QOTD.setBackground(new Color(255, 240, 245));
-	QOTD.setBounds(121, 165, 208, 29);
+	QOTD.setBounds(10, 392, 208, 29);
 	QOTD.setFont(new Font("Tahoma", Font.PLAIN, 14));
 	add(QOTD);
 	
 	weather = new JButton("Weatherforecast");
 	weather.setForeground(new Color(0, 0, 0));
 	weather.setBackground(new Color(255, 240, 245));
-	weather.setBounds(149, 124, 152, 29);
+	weather.setBounds(181, 226, 208, 29);
 	weather.setFont(new Font("Tahoma", Font.PLAIN, 14));
 	add(weather);
 	
 	logOut = new JButton("Log out");
 	logOut.setBackground(new Color(255, 240, 245));
-	logOut.setBounds(177, 251, 92, 29);
+	logOut.setBounds(482, 23, 92, 29);
 	logOut.setFont(new Font("Tahoma", Font.PLAIN, 14));
 	add(logOut);
 	
 	
 	Quote = new JTextArea();
-	Quote.setBounds(131, 206, 198, 16);
+	Quote.setBounds(226, 392, 198, 25);
 	Quote.setLineWrap(true);
 	Quote.setWrapStyleWord(true);	
 	add(Quote);
+	
+	JButton btnCalendarWeekView = new JButton("Calendar week view");
+	btnCalendarWeekView.setForeground(Color.BLACK);
+	btnCalendarWeekView.setFont(new Font("Tahoma", Font.PLAIN, 14));
+	btnCalendarWeekView.setBackground(new Color(255, 240, 245));
+	btnCalendarWeekView.setBounds(181, 186, 208, 29);
+	add(btnCalendarWeekView);
 	
 	
 	}
@@ -143,5 +150,4 @@ public class MainMenu extends JPanel{
 	public void setQuote(JTextArea quote) {
 		Quote = quote;
 	}
-	
 }

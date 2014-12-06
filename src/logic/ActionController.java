@@ -34,9 +34,9 @@ public class ActionController  {
 			}
 			private class MainMenuActionListener implements ActionListener{
 			public void actionPerformed(ActionEvent e){
-				//if (e.getSource() == screen.getMainMenu().getViewCalendar()){
-					//screen.show(Screen.CALENDARDAY);
-				//}
+				if (e.getSource() == screen.getMainMenu().getViewCalendar()){
+					screen.show(Screen.CALENDARDAY);
+				}
 				if (e.getSource() == screen.getMainMenu().getWeather()){
 					screen.show(Screen.WEATHER);
 			}
