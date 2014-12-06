@@ -1,5 +1,5 @@
 
-package logic;
+package gui;
 
 import java.util.Calendar;
 public class Logic {
