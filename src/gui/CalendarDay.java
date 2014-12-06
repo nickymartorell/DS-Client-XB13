@@ -1,13 +1,10 @@
 package gui;
 
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.sql.Date;
 import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.GregorianCalendar;
 
-import javax.*;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -17,10 +14,12 @@ import javax.swing.JTable;
 
 public class CalendarDay extends JFrame {
 
+/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 static JButton btnNext, btnPrev;
 static int currYear, currDOM, currentMonth;
-private JTable tabel;
-
 public CalendarDay() {
     this.setSize(800,600);
     this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
@@ -35,7 +34,7 @@ public CalendarDay() {
     borderPanel.setBackground((new Color(199, 21, 133)));
     
 
-    // Initialize GregorianCalendar
+  
     GregorianCalendar cal = new GregorianCalendar();
     int currMnth = cal.get(GregorianCalendar.MONTH);
     currentMonth = currMnth;
@@ -167,11 +166,11 @@ public CalendarDay() {
 
     // South Panel - Current Year
     JPanel today = new JPanel();
-    today.add(new JLabel("Today's date is:"  )); // her skal dagen sættes ind
+    today.add(new JLabel("Today's date is:" + String inputToPrint )); // her skal dagen sættes ind
     borderPanel.add(today, BorderLayout.WEST);
     today.setBackground((new Color(199, 21, 133)));
-
 }
+
 /*
 public void customPrint (long inputToPrint){
 	SimpleDateFormat sdfDate = new SimpleDateFormat("yyyy-dd-MM HH:mm:ss");
@@ -181,15 +180,13 @@ public void customPrint (long inputToPrint){
 	*/
 
 
-/* public void customPrint(String inputToPrint){
+public void customPrint(String inputToPrint){
     SimpleDateFormat sdfDate = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
     Date now = new Date();
     String strDate = sdfDate.format(now);
     System.out.println("[" + strDate + "] " + inputToPrint);
 }
-    */
+    
 
-public static void main(String[] args) {
-    new CalendarDay();
-}
+
 }

@@ -22,7 +22,7 @@ public class MainMenu extends JPanel{
 	private JButton logOut;
 	private JButton QOTD;
 	private JButton weather;
-	private JTextArea Quote;
+	private JLabel Quote;
 
 	
 
@@ -65,11 +65,9 @@ public class MainMenu extends JPanel{
 	add(logOut);
 	
 	
-	Quote = new JTextArea();
+	Quote = new JLabel();
 	Quote.setBounds(131, 206, 198, 16);
-	Quote.setLineWrap(true);
-	Quote.setWrapStyleWord(true);	
-	add(Quote);
+		add(Quote);
 	
 	
 	}
@@ -135,12 +133,12 @@ public class MainMenu extends JPanel{
 	}
 
 
-	public JTextArea getQuote() {
+	public JLabel getQuote() {
 		return Quote;
 	}
 
 
-	public void setQuote(JTextArea quote) {
+	public void setQuote(JLabel quote) {
 		Quote = quote;
 	}
 	
