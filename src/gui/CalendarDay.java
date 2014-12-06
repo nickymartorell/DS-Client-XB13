@@ -12,11 +12,15 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.JScrollPane;
 import javax.swing.JTable;
+import javax.swing.JTextArea;
+import javax.swing.JTextField;
 
 
 public class CalendarDay extends JFrame {
 
+<<<<<<< Updated upstream
 
 private static final long serialVersionUID = 1L;
 static JButton btnNext, btnPrev;
@@ -82,6 +86,99 @@ public CalendarDay() {
     String[] columnNames = {"Time"};
    	Object[] JTable;
 	Object[][] data = {
+=======
+private static final long serialVersionUID = 1L;
+public static final String viewWeek = "viewweek";
+public static final String viewNote = "viewnote";
+public static final String newNote = "newnote";
+public static final String CreateEvent = "createEvent";
+public static final String DeleteEvent ="deleteEvent";
+public static final String DeleteNote ="deleteNote";
+public static final String Back ="Backtomenu";
+
+private JLabel dayView;
+private JPanel event;
+//private JTable eventTable;
+//private JScrollPane eventScroll;
+private JButton createEvent;
+private JButton deleteEvent;
+private JButton backToMenu;
+private JButton createNote;
+private JButton deleteNote;
+private JButton BTNviewWeek;
+private JButton viewNotes;
+private JTextField textField;
+private JTable tabel;
+//private JLabel forecast; //her skal vejrudsigten ind
+//private JLabel note; //her skal noten indsættes
+
+
+public CalendarDay(){
+	setBackground(new Color(199, 21, 133));
+	getContentPane().setLayout(null);
+	
+	dayView = new JLabel("This is your calendar");
+	dayView.setBounds(113, 33, 275, 25);
+	dayView.setForeground(new Color(255, 192, 203));
+	dayView.setFont(new Font("Dialog", Font.BOLD, 25));
+	getContentPane().add(dayView);
+	
+	event = new JPanel();
+	getContentPane().add(event, BorderLayout.CENTER);
+	event.setLayout(new BorderLayout(0, 0));
+	setBackground(new Color(199, 21, 133));
+	
+	createEvent = new JButton("Create event");
+	createEvent.setBounds(327, 180, 152, 29);
+	createEvent.setForeground(new Color(255, 192, 203));
+	createEvent.setFont(new Font("Tahoma", Font.PLAIN, 14));
+	getContentPane().add(createEvent);
+	
+	deleteEvent = new JButton ("Delete event");
+	deleteEvent.setBounds(327, 208, 152, 29);
+	deleteEvent.setForeground(new Color(255, 192, 203));
+	deleteEvent.setFont(new Font("Tahoma", Font.PLAIN, 14));
+	getContentPane().add(deleteEvent);
+	
+	backToMenu = new JButton ("Back to menu");
+	backToMenu.setBounds(327, 237, 152, 29);
+	backToMenu.setForeground(new Color(255, 192, 203));
+	backToMenu.setFont(new Font("Tahoma", Font.PLAIN, 14));
+	getContentPane().add(backToMenu);
+	
+	createNote = new JButton("Create note");
+	createNote.setBounds(327, 123, 152, 29);
+	createNote.setForeground(new Color(255, 192, 203));
+	createNote.setFont(new Font("Tahoma", Font.PLAIN, 14));
+	getContentPane().add(createNote);
+	
+	deleteNote = new JButton("Delete note");
+	deleteNote.setBounds(327, 152, 152, 29);
+	deleteNote.setForeground(new Color(255, 192, 203));
+	deleteNote.setFont(new Font("Tahoma", Font.PLAIN, 14));
+	getContentPane().add(deleteNote);
+	
+	BTNviewWeek = new JButton("View week");
+	BTNviewWeek.setBounds(327, 70, 152, 29);
+	BTNviewWeek.setForeground(new Color(255, 192, 203));
+	BTNviewWeek.setFont(new Font("Tahoma", Font.PLAIN, 14));
+	getContentPane().add(BTNviewWeek);
+	
+	viewNotes = new JButton("View notes");
+	viewNotes.setBounds(327, 97, 152, 29);
+	viewNotes.setForeground(new Color(255, 192, 203));
+	viewNotes.setFont(new Font("Tahoma", Font.PLAIN, 14));
+	getContentPane().add(viewNotes);
+	
+	textField = new JTextField();
+	textField.setBounds(50, 70, 208, 285);
+	getContentPane().add(textField);
+	textField.setColumns(10);
+	textField.add(tabel);
+	
+	/* String[] columnNames = {"Time"};
+   	Object[][] data = {
+>>>>>>> Stashed changes
    		//	{"Time", "Mon " + MonDay, 
    		//		"Tue " + TueDay, "Wed " + WedDay, 
    		//		"Thu" + ThuDay, "Fri " + FriDay, "Sat " + SatDay, "Sun " + SunDay},
@@ -122,6 +219,7 @@ public CalendarDay() {
     tabel.setFont(new Font("Tahoma", Font.PLAIN, 11));
 	tabel.setSurrendersFocusOnKeystroke(true);
 	tabel.setShowGrid(true);
+<<<<<<< Updated upstream
 	tabel.setBackground(Color.PINK);
 	// skal rettes til at man ikke skal kunne skrive i tabellen!! 
 
@@ -161,9 +259,113 @@ public CalendarDay() {
     month.add(btnNext);
     borderPanel.add(month, BorderLayout.NORTH);
     month.setBackground((new Color(199, 21, 133)));
+=======
+	tabel.setBackground(Color.PINK); */
+	
+	
+	
+	
+	/**
+	 * 
+	 */
+	/*
+	
+	
+	public CalendarDay () {
+		setSize(Screen.WIDTH,Screen.HEIGHT);
+		setLayout(new BorderLayout());
+		setBackground(new Color(199, 21, 133));
+	
+		
+		lblDayView = new JLabel("Day view");
+		lblDayView.setHorizontalAlignment(SwingConstants.CENTER);
+		add(lblDayView, BorderLayout.NORTH);
+		
+		
+		eventPanel = new JPanel();
+		add(eventPanel, BorderLayout.CENTER);
+		eventPanel.setLayout(new BorderLayout(0, 0));
+		setBackground(new Color(199, 21, 133));
+	
+		
+		notePanel = new JPanel();
+		notePanel.setBorder(new SoftBevelBorder(BevelBorder.LOWERED, new Color(199, 21, 133), SystemColor.textHighlight, SystemColor.textHighlight, SystemColor.textHighlight));
+//		panel.setBorder(new EmptyBorder(30, 30, 30, 30));
+		notePanel.setMaximumSize(new Dimension(1000, 100));
+		notePanel.setPreferredSize(new Dimension(300, 100));
+		notePanel.setMinimumSize(new Dimension(1, 100));
+		notePanel.setVisible(false);
+		eventPanel.add(notePanel, BorderLayout.EAST);
+		setBackground(new Color(199, 21, 133));
+		
+		
+		noteTxt = new JTextArea("");
+		noteTxt.setBackground(SystemColor.control);
+		noteTxt.setEditable(false);
+		noteTxt.setWrapStyleWord(true);
+	    noteTxt.setLineWrap(true);
+	    noteTxt.setVisible(false);
+		notePanel.add(noteTxt);
+		
+		
+		bottomPanel = new JPanel();
+		add(bottomPanel, BorderLayout.SOUTH);
+		bottomPanel.setLayout(new BorderLayout(0, 0));
+		setBackground(new Color(199, 21, 133));
+		
+		
+		activePanel = new JPanel();
+		bottomPanel.add(activePanel, BorderLayout.SOUTH);
+		setBackground(new Color(199, 21, 133));
+		
+		
+		btnCreate = new JButton("Add event");
+		btnCreate.setActionCommand(CREATEEVE);
+		activePanel.add(btnCreate);
+		
+		btnDelete = new JButton("Delete event");
+		btnDelete.setActionCommand(DELETEEVE);
+		activePanel.add(btnDelete);
+		
+		btnBack = new JButton("Week View");
+		btnBack.setActionCommand(WEEK);
+		activePanel.add(btnBack);
+		
+		btnNote = new JButton("View note");
+		btnNote.setActionCommand(NOTE);
+		activePanel.add(btnNote);
+		
+		infoPanel = new JPanel();
+		bottomPanel.add(infoPanel, BorderLayout.NORTH);
+		infoPanel.setLayout(new GridLayout(0, 4, 0, 0));
+		setBackground(new Color(199, 21, 133));
+		
+		
+		forecastTxt = new JTextArea("");
+		forecastTxt.setEditable(false);
+		forecastTxt.setWrapStyleWord(true);
+		forecastTxt.setLineWrap(true);
+		forecastTxt.setBackground(SystemColor.control);
+		infoPanel.add(forecastTxt);
+		
+		btnSet = new JButton("Add note");
+		infoPanel.add(btnSet);
+		btnSet.setVisible(false);
+		btnSet.setActionCommand(SET);
+		
+		btnDelNote = new JButton("Delete Note");
+		btnDelNote.setVisible(false);
+		btnDelNote.setActionCommand(DELNOTE);
+		infoPanel.add(btnDelNote);
+		
+	
+		
+	}
+>>>>>>> Stashed changes
 
-    
+	
 
+<<<<<<< Updated upstream
     // Current Date
     JPanel year = new JPanel();
     year.setBackground((new Color(199, 21, 133)));
@@ -203,8 +405,57 @@ public void customPrint (long inputToPrint){
 	String strDate = sdfDate.format(now);
 	System.out.println("[" + strDate + "]" + inputToPrint);
 	*/
+=======
+	public void updateEvents(Object[][] data,String[] header) {
+		
+		if(eventTable != null){
+			eventPanel.remove(eventTable);
+			eventPanel.remove(eventScroll);
+		}
+		eventTable = new JTable(data,header);
+		eventTable.setPreferredScrollableViewportSize(new Dimension(800,70));
+		eventTable.setFillsViewportHeight(true);
+		
+		eventScroll = new JScrollPane(eventTable);
+		eventScroll.setBounds(26,30,930,280);
+		eventPanel.add(eventScroll);
+		
+	}
+	
+	public void removeTable() {
+		eventPanel.remove(eventTable);
+		eventPanel.remove(eventScroll);
+	}
+	
+	public JLabel getLblDayView() {
+		return lblDayView;
+	}
 
+	public void setLblDayView(JLabel lblDayView) {
+		this.lblDayView = lblDayView;
+	}
 
+	public JPanel getEventPanel() {
+		return eventPanel;
+	}
+
+	public void setEventPanel(JPanel eventPanel) {
+		this.eventPanel = eventPanel;
+	}
+
+	public JPanel getActivePanel() {
+		return activePanel;
+	}
+	public JTextArea getForecastTxt() {
+		return forecastTxt;
+	}
+>>>>>>> Stashed changes
+
+	public void setForecastTxt(JTextArea forecastTxt) {
+		this.forecastTxt = forecastTxt;
+	}
+
+<<<<<<< Updated upstream
 
 
 public static JButton getBtnNext() {
@@ -357,8 +608,56 @@ public static long getSerialversionuid() {
     Date now = new Date();
     String strDate = sdfDate.format(now);
     System.out.println("[" + strDate + "] " + inputToPrint);
+=======
+	public void setActivePanel(JPanel activePanel) {
+		this.activePanel = activePanel;
+	}
+
+	public JTextArea getNoteLbl() {
+		return noteTxt;
+	}
+
+	public void setNoteTxt(JTextArea noteTxt) {
+		this.noteTxt = noteTxt;
+	}
+
+	public JButton getBtnSet() {
+		return btnSet;
+	}
+
+	public void setBtnSet(JButton btnSet) {
+		this.btnSet = btnSet;
+	}
+
+	
+
+
+
+	public JPanel getNotePanel() {
+		return notePanel;
+	}
+
+
+
+	public void setNotePanel(JPanel notePanel) {
+		this.notePanel = notePanel;
+	}
+
+
+
+	public JButton getBtnDelNote() {
+		return btnDelNote;
+	}
+
+
+
+	public void setBtnDelNote(JButton btnDelNote) {
+		this.btnDelNote = btnDelNote;
+	}
+*/
+}
+>>>>>>> Stashed changes
 }
     */
 
 
-}
