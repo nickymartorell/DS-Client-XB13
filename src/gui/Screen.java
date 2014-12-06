@@ -13,7 +13,7 @@ public class Screen extends JFrame {
 	private static final long serialVersionUID = 1L;
 	public static final String LOGIN = "LOGIN";
 	public static final String MAINMENU = "MAINMENU";
-	//public static final String CALENDARDAY = "CALENDARDAY";
+	public static final String CALENDARDAY = "CALENDARDAY";
 	public static final String WEATHER = "WEATHER";
 	
 	
@@ -21,7 +21,7 @@ public class Screen extends JFrame {
 	private JPanel contentPane;
 	public Login login;
 	private MainMenu mainMenu;
-	//private CalendarDay calendarDay;
+	private CalendarDay calendarDay;
 	private Weather weather;
 	
 	
@@ -43,8 +43,8 @@ public class Screen extends JFrame {
 		mainMenu = new MainMenu();
 		contentPane.add(mainMenu, MAINMENU);
 		
-		//calendarDay = new CalendarDay();
-		//contentPane.add(calendarDay, CALENDARDAY);
+		calendarDay = new CalendarDay();
+		contentPane.add(calendarDay, CALENDARDAY);
 		
 		weather = new Weather();
 		contentPane.add(weather, WEATHER);
@@ -66,9 +66,9 @@ public class Screen extends JFrame {
 	public void show(String card) {
 		c.show(getContentPane(),  card);
 	}
-	//public CalendarDay getCalendarDay(){
-		//return calendarDay;
-	//}
+	public CalendarDay getCalendarDay(){
+		return calendarDay;
+	}
 	public Weather getWeather() {
 	return weather;
 	}

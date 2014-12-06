@@ -17,9 +17,18 @@ import javax.swing.JTable;
 
 public class CalendarDay extends JFrame {
 
+
+private static final long serialVersionUID = 1L;
 static JButton btnNext, btnPrev;
 static int currYear, currDOM, currentMonth;
 private JTable tabel;
+private JButton btnAddNote;
+private JButton btnAddEvent;
+private JButton btnBackToMenu; 
+private JButton btnViewWeek; 
+
+
+
 
 public CalendarDay() {
     this.setSize(800,600);
@@ -104,7 +113,7 @@ public CalendarDay() {
    			{"24.00", null, null, null, null, null, null, null},
 	};
     
-   	JTable tabel = new JTable(data, columnNames);		
+   	tabel = new JTable(data, columnNames);		
    	tabel.setRowHeight(20);
    	tabel.setBounds(0, 6, 313, 494);
    	tabel.setFillsViewportHeight(true);
@@ -142,10 +151,10 @@ public CalendarDay() {
     btnPrev = new JButton("View yesterday");
     JPanel month = new JPanel();    
     
-    JButton btnAddNote = new JButton("Add note");
+    btnAddNote = new JButton("Add note");
     month.add(btnAddNote);
     
-    JButton btnAddEvent = new JButton("Add event");
+    btnAddEvent = new JButton("Add event");
     month.add(btnAddEvent);
     month.add(btnPrev);
     month.add(new JLabel(StringMnth));
@@ -159,10 +168,10 @@ public CalendarDay() {
     JPanel year = new JPanel();
     year.setBackground((new Color(199, 21, 133)));
     
-    JButton btnViewWeek = new JButton("View week");
+    btnViewWeek = new JButton("View week");
     year.add(btnViewWeek);
     
-    JButton btnBackToMenu = new JButton("Back to menu");
+    btnBackToMenu = new JButton("Back to menu");
     year.add(btnBackToMenu);
     ;
     
@@ -176,6 +185,17 @@ public CalendarDay() {
     today.setBackground((new Color(199, 21, 133)));
 
 }
+public void addActionListener(ActionListener X) {
+	btnNext.addActionListener(X);
+	btnPrev.addActionListener(X);
+	btnAddNote.addActionListener(X);
+	btnAddEvent.addActionListener(X);
+	btnBackToMenu.addActionListener(X);
+	btnViewWeek.addActionListener(X);
+
+	
+	
+}
 /*
 public void customPrint (long inputToPrint){
 	SimpleDateFormat sdfDate = new SimpleDateFormat("yyyy-dd-MM HH:mm:ss");
@@ -183,6 +203,153 @@ public void customPrint (long inputToPrint){
 	String strDate = sdfDate.format(now);
 	System.out.println("[" + strDate + "]" + inputToPrint);
 	*/
+
+
+
+
+public static JButton getBtnNext() {
+	return btnNext;
+}
+
+
+
+
+public static void setBtnNext(JButton btnNext) {
+	CalendarDay.btnNext = btnNext;
+}
+
+
+
+
+public static JButton getBtnPrev() {
+	return btnPrev;
+}
+
+
+
+
+public static void setBtnPrev(JButton btnPrev) {
+	CalendarDay.btnPrev = btnPrev;
+}
+
+
+
+
+public static int getCurrYear() {
+	return currYear;
+}
+
+
+
+
+public static void setCurrYear(int currYear) {
+	CalendarDay.currYear = currYear;
+}
+
+
+
+
+public static int getCurrDOM() {
+	return currDOM;
+}
+
+
+
+
+public static void setCurrDOM(int currDOM) {
+	CalendarDay.currDOM = currDOM;
+}
+
+
+
+
+public static int getCurrentMonth() {
+	return currentMonth;
+}
+
+
+
+
+public static void setCurrentMonth(int currentMonth) {
+	CalendarDay.currentMonth = currentMonth;
+}
+
+
+
+
+public JTable getTabel() {
+	return tabel;
+}
+
+
+
+
+public void setTabel(JTable tabel) {
+	this.tabel = tabel;
+}
+
+
+
+
+public JButton getBtnAddNote() {
+	return btnAddNote;
+}
+
+
+
+
+public void setBtnAddNote(JButton btnAddNote) {
+	this.btnAddNote = btnAddNote;
+}
+
+
+
+
+public JButton getBtnAddEvent() {
+	return btnAddEvent;
+}
+
+
+
+
+public void setBtnAddEvent(JButton btnAddEvent) {
+	this.btnAddEvent = btnAddEvent;
+}
+
+
+
+
+public JButton getBtnBackToMenu() {
+	return btnBackToMenu;
+}
+
+
+
+
+public void setBtnBackToMenu(JButton btnBackToMenu) {
+	this.btnBackToMenu = btnBackToMenu;
+}
+
+
+
+
+public JButton getBtnViewWeek() {
+	return btnViewWeek;
+}
+
+
+
+
+public void setBtnViewWeek(JButton btnViewWeek) {
+	this.btnViewWeek = btnViewWeek;
+}
+
+
+
+
+public static long getSerialversionuid() {
+	return serialVersionUID;
+}
 
 
 /* public void customPrint(String inputToPrint){
@@ -193,7 +360,5 @@ public void customPrint (long inputToPrint){
 }
     */
 
-public static void main(String[] args) {
-    new CalendarDay();
-}
+
 }
