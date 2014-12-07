@@ -27,15 +27,16 @@ public class ActionController  {
 			private boolean u;
 			private boolean full = false;
 			private Gson gson;
-			private ServerConnection serverConnection;
+			private ServerConnection sc;
 			private String email;
 			private String password; 
+			;
 			
 			
 			
 			public ActionController(){
 				screen = new Screen();
-				serverConnection = new ServerConnection();
+				sc = new ServerConnection();
 				gson = new GsonBuilder().create();
 				
 				
@@ -58,34 +59,42 @@ public class ActionController  {
 						
 						username = screen.getLogin().getEnterUsername().getText();
 						password = screen.getLogin().getEnterPassword().getText();
-						
+						/**
 						Users.setEnterUsername(username);
 						Users.setPassword(password);
 						JsonElement Users = null;
 						String gsonString = gson.toJson(Users);
 						String info = null;
-						
+						*/
 						System.out.println(username);
 						System.out.println(password);
+						String ret = userLogin(username,password);
+						if(ret.equals("1")){
+							screen.show(Screen.MAINMENU);
+						}
+						else 
+						{
+							System.out.println("Please type correct");
+						}
 					}
 
 						//screen.show(Screen.MAINMENU);
-					/**
-					String cmd = e.getActionCommand(); 
-					
-				
-				if(cmd.equals("LoginBtn")) // hvis actioncommand er "LoginBtn"
-				{				
-					
-				
-		 			Users.setEnterUsername(email);
-					Users.setPassword(password);
-					JsonElement Users;
-					String gsonString = gson.toJson(Users);
-					String info = null;
+
 			}
-				*/
-			}
+				public String userLogin (String username, String password)
+				{
+					String userExists ="";
+					AuthUser AU = new AuthUser();
+					AU.setAuthUserEmail(username);
+					AU.setAuthUserPassword(password);
+					String gsonString = gson.toJson(AU);
+					try {
+						userExists = sc.sendMessage(gsonString);
+					} catch (Exception e) {
+						e.printStackTrace();
+					}
+					return userExists;
+				}
 			private class MainMenuActionListener implements ActionListener{
 			public void actionPerformed(ActionEvent e){
 				String cmd = e.getActionCommand();
