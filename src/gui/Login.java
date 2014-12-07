@@ -108,8 +108,8 @@ public class Login extends JPanel{
 	}
 	
 	//get password
-	public char[]  getenterPassword(){
-		return enterPassword.getPassword();
+	public String getenterPassword(){
+		return enterPassword.getText();
 	}
 	
 	
@@ -170,7 +170,7 @@ public class Login extends JPanel{
 		this.enterPassword = enterPassword;
 	}
 
-	public JTextField getEnterUsername() {
+	public String getEnterUsername() {
 		return enterUsername;
 	}
 

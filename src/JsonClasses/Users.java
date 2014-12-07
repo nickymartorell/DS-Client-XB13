@@ -29,6 +29,16 @@ public class Users implements java.io.Serializable
 	public int getUserId() {
 		return userId;
 	}
+
+	
+	public static void setEnterUsername(String EnterUsername) {
+		this.EnterUsername();
+	}
+	private void EnterUsername() {
+		// TODO Auto-generated method stub
+		
+	}
+
 	public void setUserId(int userId) {
 		this.userId = userId;
 	}
@@ -53,7 +63,7 @@ public class Users implements java.io.Serializable
 	public String getPassword() {
 		return password;
 	}
-	public void setPassword(String password) {
+	public static void setPassword(String password) {
 		this.password = password;
 	}	
 	public String getOverallId() {

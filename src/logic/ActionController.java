@@ -2,15 +2,23 @@ package logic;
 
 
 import shared.ServerConnection;
-import shared.getQOTD;
 import gui.Screen;
+
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+
 import javax.swing.JOptionPane;
+import javax.swing.JPasswordField;
+import javax.swing.JTextField;
+
 import java.io.IOException;
 import java.net.UnknownHostException;
+
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
+import com.google.gson.JsonElement;
+
+import JsonClasses.*;
 @SuppressWarnings("unused")
 	
 	
@@ -18,17 +26,18 @@ public class ActionController  {
 			private Screen screen;
 			private boolean u;
 			private boolean full = false;
-			private getQOTD qOTD;
 			private Gson gson;
 			private ServerConnection serverConnection;
-
+			private String email;
+			private String password; 
+			
 			
 			
 			public ActionController(){
 				screen = new Screen();
 				serverConnection = new ServerConnection();
 				gson = new GsonBuilder().create();
-				qOTD = new getQOTD();
+				
 				
 				screen.getLogin().addActionListener(new LoginActionListener());
 				screen.getMainMenu().addActionListener(new MainMenuActionListener());
@@ -43,9 +52,22 @@ public class ActionController  {
 			
 			private class LoginActionListener implements ActionListener {
 				public void actionPerformed(ActionEvent e) {
-					screen.show(Screen.MAINMENU);
-					String cmd = e.getActionCommand();
-				}
+						//screen.show(Screen.MAINMENU);
+					String cmd = e.getActionCommand(); 
+					
+				
+				if(cmd.equals("LoginBtn")) // hvis actioncommand er "LoginBtn"
+				{				
+					
+					email = screen.getLogin().getEnterUsername(); 
+					password = screen.getLogin().getenterPassword();
+		 			Users.setEnterUsername(email);
+					Users.setPassword(password);
+					JsonElement Users;
+					String gsonString = gson.toJson(Users);
+					String info = null;
+			}
+				
 			}
 			private class MainMenuActionListener implements ActionListener{
 			public void actionPerformed(ActionEvent e){

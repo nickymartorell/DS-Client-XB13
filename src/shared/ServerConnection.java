@@ -15,7 +15,7 @@ import JsonClasses.*;
 public class ServerConnection {
        
         public String sendMessage(String gsonString) throws Exception {
-                encryption cryp = new encryption();
+                Encryption cryp = new Encryption();
                 String stringToBeReturned = null;
                 String modifiedSentence;
                 Socket clientSocket = new Socket("localhost", 8888);
