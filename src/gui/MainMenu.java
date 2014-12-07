@@ -20,7 +20,7 @@ public class MainMenu extends JPanel{
 	private JLabel lblWelcome;
 	private JButton viewCalendar;
 	private JButton logOut;
-	private JButton QOTD;
+	private JButton btnQOTD;
 	private JButton weather;
 	private JTextArea Quote;
 
@@ -45,11 +45,11 @@ public class MainMenu extends JPanel{
 	viewCalendar.setFont(new Font("Tahoma", Font.PLAIN, 14));
 	add(viewCalendar);
 
-	QOTD = new JButton ("Quote:");
-	QOTD.setBackground(new Color(255, 240, 245));
-	QOTD.setBounds(10, 392, 208, 29);
-	QOTD.setFont(new Font("Tahoma", Font.PLAIN, 14));
-	add(QOTD);
+	btnQOTD = new JButton ("Quote:");
+	btnQOTD.setBackground(new Color(255, 240, 245));
+	btnQOTD.setBounds(10, 392, 208, 29);
+	btnQOTD.setFont(new Font("Tahoma", Font.PLAIN, 14));
+	add(btnQOTD);
 	
 	weather = new JButton("Weatherforecast");
 	weather.setForeground(new Color(0, 0, 0));
@@ -84,7 +84,7 @@ public class MainMenu extends JPanel{
 
 	public void addActionListener(ActionListener l){
 		viewCalendar.addActionListener(l);
-		QOTD.addActionListener(l);
+		btnQOTD.addActionListener(l);
 		weather.addActionListener(l);
 		logOut.addActionListener(l);
 		
@@ -123,12 +123,12 @@ public class MainMenu extends JPanel{
 
 
 	public JButton getQOTD() {
-		return QOTD;
+		return btnQOTD;
 	}
 
 
 	public void setQOTD(JButton qOTD) {
-		QOTD = qOTD;
+		btnQOTD = qOTD;
 	}
 
 
