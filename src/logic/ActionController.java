@@ -51,7 +51,7 @@ public class ActionController  {
 			public void actionPerformed(ActionEvent e){
 				String cmd = e.getActionCommand();
 				
-				if(cmd.equals("btnQotd")){
+				/*if(cmd.equals("btnQotd")){
 					String gsonString = gson.toJson(qOTD);
 					String qoute = null;
 					try {
@@ -69,9 +69,9 @@ public class ActionController  {
 
 				}
 				
+				*/
 				
-				
-				else if (e.getSource() == screen.getMainMenu().getViewCalendar()){
+				if (e.getSource() == screen.getMainMenu().getViewCalendar()){
 					screen.show(Screen.CALENDARDAY);
 				}
 				if (e.getSource() == screen.getMainMenu().getWeather()){
