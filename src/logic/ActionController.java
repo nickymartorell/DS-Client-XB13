@@ -83,7 +83,7 @@ public class ActionController  {
 			}
 			}
 			
-}
+
 }
 
 			private class WeatherActionListener implements ActionListener{
@@ -93,7 +93,7 @@ public class ActionController  {
 				}
 			}
 			}
-}
+
 		
 
 
