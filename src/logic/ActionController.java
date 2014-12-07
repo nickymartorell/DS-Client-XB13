@@ -41,7 +41,7 @@ public class ActionController  {
 				
 				
 				screen.getLogin().addActionListener(new LoginActionListener());
-				//screen.getMainMenu().addActionListener(new MainMenuActionListener());
+				screen.getMainMenu().addActionListener(new MainMenuActionListener());
 				//screen.getWeather().addActionListener(new WeatherActionListener());
 				
 			}
@@ -59,13 +59,6 @@ public class ActionController  {
 						
 						username = screen.getLogin().getEnterUsername().getText();
 						password = screen.getLogin().getEnterPassword().getText();
-						/**
-						Users.setEnterUsername(username);
-						Users.setPassword(password);
-						JsonElement Users = null;
-						String gsonString = gson.toJson(Users);
-						String info = null;
-						*/
 						System.out.println(username);
 						System.out.println(password);
 						String ret = userLogin(username,password);
@@ -78,7 +71,6 @@ public class ActionController  {
 						}
 					}
 
-						//screen.show(Screen.MAINMENU);
 
 			}
 				public String userLogin (String username, String password)
@@ -95,29 +87,47 @@ public class ActionController  {
 					}
 					return userExists;
 				}
+			}
+
+			
 			private class MainMenuActionListener implements ActionListener{
 			public void actionPerformed(ActionEvent e){
-				String cmd = e.getActionCommand();
-				
-				/*if(cmd.equals("btnQotd")){
-					String gsonString = gson.toJson(qOTD);
-					String qoute = null;
+				if (e.getSource() == screen.getMainMenu().getQOTD()){
+				}
+			
+			
+					String quote = null;
+					String author = null;
+					String topic = null;
+					
+					Quote GQ = new Quote();
+					GQ.setQuote(quote);
+					String gsonString = gson.toJson(GQ);
 					try {
-						qoute = serverConnection.getFromServer(gsonString);
-						qOTD = gson.fromJson(qoute, getQOTD.class);
-						screen.getMainMenu().setQuote(qOTD.getQuote());
+						quote = sc.sendMessage(gsonString);
+						author = sc.sendMessage(gsonString);
+						topic = sc.sendMessage(gsonString);
 					}
 					catch (UnknownHostException e1) {
 						e1.printStackTrace();
-					} catch (IOException e1) {
-						e1.printStackTrace();
-					} catch (ClassNotFoundException e1) {
+					
+					} catch (Exception e1) {
+						// TODO Auto-generated catch block
 						e1.printStackTrace();
 					}
+					/**
+					finally {
+						System.out.println(quote);
+						System.out.println(author);
+						System.out.println(topic);
+						}
+						*/
 
 				}
+			}
+}
 				
-				*/
+			/**
 				
 				if (e.getSource() == screen.getMainMenu().getViewCalendar()){
 					screen.show(Screen.CALENDARDAY);
@@ -131,7 +141,12 @@ public class ActionController  {
 			}
 			}
 			}
-}
+			*/
+
+			
+			
+
+
 			
 
 
