@@ -40,7 +40,7 @@ public class ActionController  {
 				
 				
 				screen.getLogin().addActionListener(new LoginActionListener());
-				screen.getMainMenu().addActionListener(new MainMenuActionListener());
+				//screen.getMainMenu().addActionListener(new MainMenuActionListener());
 				//screen.getWeather().addActionListener(new WeatherActionListener());
 				
 			}
@@ -52,22 +52,39 @@ public class ActionController  {
 			
 			private class LoginActionListener implements ActionListener {
 				public void actionPerformed(ActionEvent e) {
+					if (e.getSource() == screen.getLogin().getBtnLogIn()){
+						String username = null;
+						String password = null;
+						
+						username = screen.getLogin().getEnterUsername().getText();
+						password = screen.getLogin().getEnterPassword().getText();
+						
+						Users.setEnterUsername(username);
+						Users.setPassword(password);
+						JsonElement Users = null;
+						String gsonString = gson.toJson(Users);
+						String info = null;
+						
+						System.out.println(username);
+						System.out.println(password);
+					}
+
 						//screen.show(Screen.MAINMENU);
+					/**
 					String cmd = e.getActionCommand(); 
 					
 				
 				if(cmd.equals("LoginBtn")) // hvis actioncommand er "LoginBtn"
 				{				
 					
-					email = screen.getLogin().getEnterUsername(); 
-					password = screen.getLogin().getenterPassword();
+				
 		 			Users.setEnterUsername(email);
 					Users.setPassword(password);
 					JsonElement Users;
 					String gsonString = gson.toJson(Users);
 					String info = null;
 			}
-				
+				*/
 			}
 			private class MainMenuActionListener implements ActionListener{
 			public void actionPerformed(ActionEvent e){
@@ -104,9 +121,11 @@ public class ActionController  {
 			}
 			}
 			}
+			}
+}
 			
 
-}
+
 
 /**			
 private class WeatherActionListener implements ActionListener{

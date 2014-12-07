@@ -27,8 +27,8 @@ public class CalendarDay extends JPanel{
 	private boolean DEBUG = false;
 	private JLabel lblWelcome;
 	private JButton viewCalendar;
-	private JButton weather;
-	private JButton btnCalendarWeekView;
+	private JButton DeleteEvent;
+	private JButton DeleteNote;
 	private JButton btnMainMenu;
 	public static JFrame frame;
 	public String urObjctInCell;
@@ -55,21 +55,21 @@ public class CalendarDay extends JPanel{
 	viewCalendar.setFont(new Font("Tahoma", Font.PLAIN, 14));
 	add(viewCalendar);
 	
-	weather = new JButton("Delete event");
-	weather.setForeground(new Color(0, 0, 0));
-	weather.setBackground(new Color(255, 240, 245));
-	weather.setBounds(495, 148, 130, 29);
-	weather.setFont(new Font("Tahoma", Font.PLAIN, 14));
-	add(weather);
+	DeleteEvent = new JButton("Delete event");
+	DeleteEvent.setForeground(new Color(0, 0, 0));
+	DeleteEvent.setBackground(new Color(255, 240, 245));
+	DeleteEvent.setBounds(495, 148, 130, 29);
+	DeleteEvent.setFont(new Font("Tahoma", Font.PLAIN, 14));
+	add(DeleteEvent);
 	
 	
 
-	btnCalendarWeekView = new JButton("Delete Note");
-	btnCalendarWeekView.setForeground(Color.BLACK);
-	btnCalendarWeekView.setFont(new Font("Tahoma", Font.PLAIN, 14));
-	btnCalendarWeekView.setBackground(new Color(255, 240, 245));
-	btnCalendarWeekView.setBounds(495, 108, 130, 29);
-	add(btnCalendarWeekView);
+	DeleteNote = new JButton("Delete Note");
+	DeleteNote.setForeground(Color.BLACK);
+	DeleteNote.setFont(new Font("Tahoma", Font.PLAIN, 14));
+	DeleteNote.setBackground(new Color(255, 240, 245));
+	DeleteNote.setBounds(495, 108, 130, 29);
+	add(DeleteNote);
 	
 	btnMainMenu = new JButton("Main menu");
 	btnMainMenu.setForeground(Color.BLACK);
@@ -135,7 +135,14 @@ public class CalendarDay extends JPanel{
             System.out.println();
         }
         System.out.println("--------------------------");
+        
     }
+	public void addActionListener(ActionListener l){
+		viewCalendar.addActionListener(l);
+		btnMainMenu.addActionListener(l);
+		DeleteEvent.addActionListener(l);
+		
+	}
 	public JButton getViewCalendar() {
 		return viewCalendar;
 	}
@@ -143,16 +150,16 @@ public class CalendarDay extends JPanel{
 		this.viewCalendar = viewCalendar;
 	}
 	public JButton getWeather() {
-		return weather;
+		return DeleteEvent;
 	}
 	public void setWeather(JButton weather) {
-		this.weather = weather;
+		this.DeleteEvent = weather;
 	}
 	public JButton getBtnCalendarWeekView() {
-		return btnCalendarWeekView;
+		return DeleteNote;
 	}
 	public void setBtnCalendarWeekView(JButton btnCalendarWeekView) {
-		this.btnCalendarWeekView = btnCalendarWeekView;
+		this.DeleteNote = btnCalendarWeekView;
 	}
 	public JButton getBtnMainMenu() {
 		return btnMainMenu;

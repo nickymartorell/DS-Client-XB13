@@ -118,66 +118,39 @@ public class Login extends JPanel{
 		return lblWelcome;
 	}
 
-	public void setLblWelcome(JLabel lblWelcome) {
-		this.lblWelcome = lblWelcome;
-	}
+	
 
 	public JLabel getLblLogInHere() {
 		return lblLogInHere;
 	}
 
-	public void setLblLogInHere(JLabel lblLogInHere) {
-		this.lblLogInHere = lblLogInHere;
-	}
-
+	
 	public JLabel getLblUsername() {
 		return lblUsername;
 	}
 
-	public void setLblUsername(JLabel lblUsername) {
-		this.lblUsername = lblUsername;
-	}
+
 
 	public JLabel getLblPassword() {
 		return lblPassword;
 	}
 
-	public void setLblPassword(JLabel lblPassword) {
-		this.lblPassword = lblPassword;
-	}
-
-	public JLabel getLblWrongPass() {
-		return lblWrongPass;
-	}
-
-	public void setLblWrongPass(JLabel lblWrongPass) {
-		this.lblWrongPass = lblWrongPass;
-	}
+	
 
 	public JButton getBtnLogIn() {
 		return btnLogIn;
 	}
 
-	public void setBtnLogIn(JButton btnLogIn) {
-		this.btnLogIn = btnLogIn;
-	}
 
 	public JPasswordField getEnterPassword() {
 		return enterPassword;
 	}
 
-	public void setEnterPassword(JPasswordField enterPassword) {
-		this.enterPassword = enterPassword;
-	}
-
-	public String getEnterUsername() {
+	public JTextField getEnterUsername() {
 		return enterUsername;
 	}
 
-	public void setEnterUsername(JTextField enterUsername) {
-		this.enterUsername = enterUsername;
-	}
-
+	
 	public static long getSerialversionuid() {
 		return serialVersionUID;
 	}
