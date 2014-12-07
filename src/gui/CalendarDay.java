@@ -51,14 +51,14 @@ public class CalendarDay extends JPanel{
 	viewCalendar.setForeground(new Color(0, 0, 0));
 	viewCalendar.setBackground(new Color(255, 240, 245));
 	
-	viewCalendar.setBounds(495, 105, 130, 29);
+	viewCalendar.setBounds(495, 68, 130, 29);
 	viewCalendar.setFont(new Font("Tahoma", Font.PLAIN, 14));
 	add(viewCalendar);
 	
 	weather = new JButton("Delete event");
 	weather.setForeground(new Color(0, 0, 0));
 	weather.setBackground(new Color(255, 240, 245));
-	weather.setBounds(495, 225, 130, 29);
+	weather.setBounds(495, 148, 130, 29);
 	weather.setFont(new Font("Tahoma", Font.PLAIN, 14));
 	add(weather);
 	
@@ -68,22 +68,22 @@ public class CalendarDay extends JPanel{
 	btnCalendarWeekView.setForeground(Color.BLACK);
 	btnCalendarWeekView.setFont(new Font("Tahoma", Font.PLAIN, 14));
 	btnCalendarWeekView.setBackground(new Color(255, 240, 245));
-	btnCalendarWeekView.setBounds(495, 185, 130, 29);
+	btnCalendarWeekView.setBounds(495, 108, 130, 29);
 	add(btnCalendarWeekView);
 	
 	btnMainMenu = new JButton("Main menu");
 	btnMainMenu.setForeground(Color.BLACK);
 	btnMainMenu.setFont(new Font("Tahoma", Font.PLAIN, 14));
 	btnMainMenu.setBackground(new Color(255, 240, 245));
-	btnMainMenu.setBounds(495, 265, 130, 29);
+	btnMainMenu.setBounds(495, 188, 130, 29);
 	add(btnMainMenu);
-	String[] columnNames = {"Type", "description", "Location", "Start", "End"};
+	String[] columnNames = { "id","Type", "Location", "Start", "End", "description", "aktiv" };
 
 	Object[][] data = new Object[300][300];
 
 	final JTable table = new JTable(data, columnNames);
 	table.setSurrendersFocusOnKeystroke(true);
-	table.setPreferredScrollableViewportSize(new Dimension(100, 100));
+	table.setPreferredScrollableViewportSize(new Dimension(500, 100));
 	table.setFillsViewportHeight(true);
 	table.setRowSelectionAllowed(true);
 	table.addMouseListener(new MouseAdapter() {
@@ -114,17 +114,10 @@ public class CalendarDay extends JPanel{
 			BevelBorder.LOWERED, new Color(0, 0, 205), new Color(255, 255,
 					255), new Color(0, 0, 205), new Color(255, 255, 255)),
 			null));
-	scrollPane.setBounds(10, 94, 474, 259);
+	scrollPane.setBounds(10, 59, 474, 361);
 
 	// Add the scroll pane to this panel.
 	add(scrollPane);
-	
-	JButton btnShowNote = new JButton("Show Note");
-	btnShowNote.setForeground(Color.BLACK);
-	btnShowNote.setFont(new Font("Tahoma", Font.PLAIN, 14));
-	btnShowNote.setBackground(new Color(255, 240, 245));
-	btnShowNote.setBounds(495, 145, 130, 29);
-	add(btnShowNote);
 	}
 	
 
@@ -142,15 +135,7 @@ public class CalendarDay extends JPanel{
             System.out.println();
         }
         System.out.println("--------------------------");
-      
-	}
-     public void addActionListener(ActionListener l){
-    		btnMainMenu.addActionListener(l);
-    		
-   
-       
-       
-       }
+    }
 	public JButton getViewCalendar() {
 		return viewCalendar;
 	}
@@ -175,5 +160,6 @@ public class CalendarDay extends JPanel{
 	public void setBtnMainMenu(JButton btnMainMenu) {
 		this.btnMainMenu = btnMainMenu;
 	}
+	
 }
 	

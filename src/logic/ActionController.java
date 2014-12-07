@@ -19,7 +19,6 @@ public class ActionController  {
 				screen.getLogin().addActionListener(new LoginActionListener());
 				screen.getMainMenu().addActionListener(new MainMenuActionListener());
 				screen.getWeather().addActionListener(new WeatherActionListener());
-				screen.getCalendarDay().addActionListener(new CalendarDayActionListener());
 				
 			}
 		
@@ -44,9 +43,6 @@ public class ActionController  {
 				if (e.getSource() == screen.getMainMenu().getLogOut()){
 					screen.show(Screen.LOGIN);
 			}
-				if (e.getSource() == screen.getMainMenu().getBtnCalendarWeekView()){
-					screen.show(Screen.CALENDARWEEK);
-			}
 			}
 			}
 			private class WeatherActionListener implements ActionListener{
@@ -55,14 +51,6 @@ public class ActionController  {
 					screen.show(Screen.MAINMENU);
 				}
 			}
-			}
-			private class CalendarDayActionListener implements ActionListener {
-				public void actionPerformed(ActionEvent e) {
-					if (e.getSource() == screen.getCalendarDay().getBtnMainMenu()){
-						screen.show(Screen.MAINMENU);
-					}
-				}
-				
 			}
 }
 		

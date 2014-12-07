@@ -15,8 +15,6 @@ public class Screen extends JFrame {
 	public static final String MAINMENU = "MAINMENU";
 	public static final String CALENDARDAY = "CALENDARDAY";
 	public static final String WEATHER = "WEATHER";
-	public static final String CALENDARWEEK = "CALENDARWEEK";
-	
 	
 	
 	
@@ -25,7 +23,6 @@ public class Screen extends JFrame {
 	private MainMenu mainMenu;
 	private CalendarDay calendarDay;
 	private Weather weather;
-	private CalendarWeek calendarWeek;
 	
 	
 	CardLayout c;
@@ -34,7 +31,7 @@ public class Screen extends JFrame {
 		setTitle("CBS Calendar");
 		setResizable(false);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 650, 500);
+		setBounds(100, 100, 600, 500);
 		contentPane = new JPanel();
 		contentPane.setBorder(null);
 		setContentPane(contentPane);
@@ -51,9 +48,6 @@ public class Screen extends JFrame {
 		
 		weather = new Weather();
 		contentPane.add(weather, WEATHER);
-		
-		calendarWeek = new CalendarWeek();
-		contentPane.add(calendarWeek, CALENDARWEEK);
 		
 		
 		
@@ -77,9 +71,6 @@ public class Screen extends JFrame {
 	}
 	public Weather getWeather() {
 	return weather;
-	}
-	public CalendarWeek getCalendarWeek() {
-	return calendarWeek;
 	}
 
 }

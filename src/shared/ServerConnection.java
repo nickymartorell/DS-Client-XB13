@@ -1,25 +1,32 @@
 package shared;
  
+import gui.Screen;
+
 import java.io.BufferedReader;
 import java.io.DataOutputStream;
 import java.io.InputStreamReader;
 import java.net.Socket;
 import java.util.ArrayList;
+
+
  
 
+
+
+
+import logic.ActionController;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
+
  
 
-
-import JsonClasses.*;
  
+@SuppressWarnings("unused")
 public class ServerConnection {
-	public static String main(String argv[]) throws Exception {       
 	
-
-				String sendMessage(String gsonString){
+       
+        public String sendMessage(String gsonString) throws Exception {
                 Encryption cryp = new Encryption();
                 String stringToBeReturned = null;
                 String modifiedSentence;
@@ -44,5 +51,4 @@ public class ServerConnection {
                
                 return stringToBeReturned;
         }
-}
 }

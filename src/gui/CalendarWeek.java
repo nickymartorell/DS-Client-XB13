@@ -1,185 +1,303 @@
 package gui;
-
-
-import java.awt.Dimension;
+import java.awt.BorderLayout;
+import java.awt.EventQueue;
 import java.awt.Font;
 
-import javax.swing.*;
-import javax.swing.border.BevelBorder;
-import javax.swing.border.CompoundBorder;
-import javax.swing.border.MatteBorder;
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+import javax.swing.JTable;
+import javax.swing.border.EmptyBorder;
+import javax.swing.JButton;
+import javax.swing.JLabel;
 
-import logic.ActionController;
-
-import java.awt.Color;
-import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
-import java.sql.SQLException;
+
+import javax.swing.SwingConstants;
 
 
-public class CalendarWeek extends JPanel{
+public class CalendarWeek extends JFrame {
+	
+
+	private JPanel contentPane;
+	int today = Logic.getdayofmonth();
+	int offset =  0;
+	
+	public CalendarWeek() {
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setBounds(100, 100, 850, 750);
+		contentPane = new JPanel();
+		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
+		setContentPane(contentPane);
+		contentPane.setLayout(null);
 		
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = 1L;
-	private boolean DEBUG = false;
-	private JLabel lblWelcome;
-	private JButton viewCalendar;
-	private JButton weather;
-	private JButton btnCalendarWeekView;
-	private JButton btnMainMenu;
-	public static JFrame frame;
-	public String urObjctInCell;
-
-
-	
-
-	public CalendarWeek(){
+		JButton btnExit = new JButton("Exit Week View");
+		btnExit.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				dispose();
+			}
+		});
 		
-	setBackground(Color.MAGENTA);
-		setLayout(null);
 		
-	lblWelcome = new JLabel("Week view");
-	lblWelcome.setForeground(new Color(255, 192, 203));
-	lblWelcome.setBounds(268, 23, 177, 25);
-	lblWelcome.setFont(new Font("Tahoma", Font.BOLD, 20));
-	add(lblWelcome);
-	
-	viewCalendar = new JButton("AddNote");
-	viewCalendar.setForeground(new Color(0, 0, 0));
-	viewCalendar.setBackground(new Color(255, 240, 245));
-	
-	viewCalendar.setBounds(495, 105, 130, 29);
-	viewCalendar.setFont(new Font("Tahoma", Font.PLAIN, 14));
-	add(viewCalendar);
-	
-	weather = new JButton("Delete event");
-	weather.setForeground(new Color(0, 0, 0));
-	weather.setBackground(new Color(255, 240, 245));
-	weather.setBounds(495, 225, 130, 29);
-	weather.setFont(new Font("Tahoma", Font.PLAIN, 14));
-	add(weather);
-	
-	
+		int SatDay = today + 7 + offset;
+		int SunDay = today + 8 + offset;
+		final int MonDay = today + 2 + offset;
+		int TueDay = today + 3 + offset;
+		int WedDay = today + 4 + offset;
+		int ThuDay = today + 5 + offset;
+		int FriDay = today + 6 + offset;
 
-	btnCalendarWeekView = new JButton("Delete Note");
-	btnCalendarWeekView.setForeground(Color.BLACK);
-	btnCalendarWeekView.setFont(new Font("Tahoma", Font.PLAIN, 14));
-	btnCalendarWeekView.setBackground(new Color(255, 240, 245));
-	btnCalendarWeekView.setBounds(495, 185, 130, 29);
-	add(btnCalendarWeekView);
+		
+		btnExit.setBounds(664, 693, 180, 29);
+		contentPane.add(btnExit);
+		
+		final JLabel Monday = new JLabel("Mon " + MonDay);
+		Monday.setFont(new Font("Lucida Grande", Font.BOLD, 13));
+		Monday.setBounds(119, 68, 95, 39);
+		contentPane.add(Monday);
+		
+		final JLabel lblTuesday = new JLabel("Tue " + TueDay);
+		lblTuesday.setFont(new Font("Lucida Grande", Font.BOLD, 13));
+		lblTuesday.setBounds(226, 68, 95, 39);
+		contentPane.add(lblTuesday);
+		
+		final JLabel lblWednesday = new JLabel("Wed " + WedDay);
+		lblWednesday.setFont(new Font("Lucida Grande", Font.BOLD, 13));
+		lblWednesday.setBounds(333, 68, 95, 39);
+		contentPane.add(lblWednesday);
+		
+		final JLabel lblThursday = new JLabel("Thu " + TueDay);
+		lblThursday.setFont(new Font("Lucida Grande", Font.BOLD, 13));
+		lblThursday.setBounds(440, 68, 95, 39);
+		contentPane.add(lblThursday);
+		
+		final JLabel lblFriday = new JLabel("Fri " + FriDay);
+		lblFriday.setFont(new Font("Lucida Grande", Font.BOLD, 13));
+		lblFriday.setBounds(547, 68, 95, 39);
+		contentPane.add(lblFriday);
+		
+		final JLabel lblSaturday = new JLabel("Sat " + SatDay);
+		lblSaturday.setFont(new Font("Lucida Grande", Font.BOLD, 13));
+		lblSaturday.setBounds(642, 68, 95, 39);
+		contentPane.add(lblSaturday);
+		
+		final JLabel lblSunday = new JLabel("Sun " + SunDay);
+		lblSunday.setFont(new Font("Lucida Grande", Font.BOLD, 13));
+		lblSunday.setBounds(749, 68, 95, 39);
+		contentPane.add(lblSunday);
+		
+		final JLabel lblTime = new JLabel("Time");
+		lblTime.setFont(new Font("Lucida Grande", Font.BOLD, 13));
+		lblTime.setBounds(20, 68, 60, 39);
+		contentPane.add(lblTime);
+		
 	
-	btnMainMenu = new JButton("Main menu");
-	btnMainMenu.setForeground(Color.BLACK);
-	btnMainMenu.setFont(new Font("Tahoma", Font.PLAIN, 14));
-	btnMainMenu.setBackground(new Color(255, 240, 245));
-	btnMainMenu.setBounds(495, 265, 130, 29);
-	add(btnMainMenu);
-	String[] columnNames = {"Type", "description", "Location", "Start", "End"};
-
-	Object[][] data = new Object[300][300];
-
-	final JTable table = new JTable(data, columnNames);
-	table.setSurrendersFocusOnKeystroke(true);
-	table.setPreferredScrollableViewportSize(new Dimension(100, 100));
-	table.setFillsViewportHeight(true);
-	table.setRowSelectionAllowed(true);
-	table.addMouseListener(new MouseAdapter() {
-	public void mouseClicked(final MouseEvent e) {
-		final JTable target = (JTable)e.getSource();
-	    int row = target.getSelectedRow();
-	    //column sat til 0 for altid at bruge id
-	     urObjctInCell = (String)target.getValueAt(row, 0);
-	     System.out.println(urObjctInCell);                         
-	}
-	}); 
-	
-	if (DEBUG) {
-        table.addMouseListener(new MouseAdapter() {
-            public void mouseClicked(MouseEvent e) {
-                printDebugData(table);
-            }
-        });
-    }
-	
-
-	JScrollPane scrollPane = new JScrollPane(table);
-	scrollPane.setBorder(new CompoundBorder(new BevelBorder(
-			BevelBorder.LOWERED, new Color(0, 0, 205), new Color(255, 255,
-					255), new Color(0, 0, 205), new Color(255, 255, 255)),
-			new MatteBorder(1, 1, 1, 1, (Color) new Color(255, 255, 255))));
-	scrollPane.setViewportBorder(new CompoundBorder(new BevelBorder(
-			BevelBorder.LOWERED, new Color(0, 0, 205), new Color(255, 255,
-					255), new Color(0, 0, 205), new Color(255, 255, 255)),
-			null));
-	scrollPane.setBounds(10, 94, 474, 259);
-
-	// Add the scroll pane to this panel.
-	add(scrollPane);
-	
-	JButton btnShowNote = new JButton("Show Note");
-	btnShowNote.setForeground(Color.BLACK);
-	btnShowNote.setFont(new Font("Tahoma", Font.PLAIN, 14));
-	btnShowNote.setBackground(new Color(255, 240, 245));
-	btnShowNote.setBounds(495, 145, 130, 29);
-	add(btnShowNote);
-	
-	JButton btnNextWeek = new JButton("Next week");
-	btnNextWeek.setForeground(Color.BLACK);
-	btnNextWeek.setFont(new Font("Tahoma", Font.PLAIN, 14));
-	btnNextWeek.setBackground(new Color(255, 240, 245));
-	btnNextWeek.setBounds(315, 364, 130, 29);
-	add(btnNextWeek);
-	
-	JButton btnPreviusWeek = new JButton("Previous week");
-	btnPreviusWeek.setForeground(Color.BLACK);
-	btnPreviusWeek.setFont(new Font("Tahoma", Font.PLAIN, 14));
-	btnPreviusWeek.setBackground(new Color(255, 240, 245));
-	btnPreviusWeek.setBounds(82, 364, 130, 29);
-	add(btnPreviusWeek);
-	}
-	
-
-	private void printDebugData(JTable table) {
-        int numRows = table.getRowCount();
-        int numCols = table.getColumnCount();
-        javax.swing.table.TableModel model = table.getModel();
- 
-        System.out.println("Value of data: ");
-        for (int i=0; i < numRows; i++) {
-            System.out.print("    row " + i + ":");
-            for (int j=0; j < numCols; j++) {
-                System.out.print("  " + model.getValueAt(i, j));
-            }
-            System.out.println();
-        }
-        System.out.println("--------------------------");
-    }
-	public JButton getViewCalendar() {
-		return viewCalendar;
-	}
-	public void setViewCalendar(JButton viewCalendar) {
-		this.viewCalendar = viewCalendar;
-	}
-	public JButton getWeather() {
-		return weather;
-	}
-	public void setWeather(JButton weather) {
-		this.weather = weather;
-	}
-	public JButton getBtnCalendarWeekView() {
-		return btnCalendarWeekView;
-	}
-	public void setBtnCalendarWeekView(JButton btnCalendarWeekView) {
-		this.btnCalendarWeekView = btnCalendarWeekView;
-	}
-	public JButton getBtnMainMenu() {
-		return btnMainMenu;
-	}
-	public void setBtnMainMenu(JButton btnMainMenu) {
-		this.btnMainMenu = btnMainMenu;
+		
+		
+		String[] columnNames = {"Time", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"};
+		Object[][] data = {
+			//	{"Time", "Mon " + MonDay, 
+			//		"Tue " + TueDay, "Wed " + WedDay, 
+			//		"Thu" + ThuDay, "Fri " + FriDay, "Sat " + SatDay, "Sun " + SunDay},
+				{"06.00", null, null, null, null, null, null, null},
+				{"07.00", null, null, null, null, null, null, null},
+				{"08.00", null, null, null, null, null, null, null},
+				{"09.00", null, null, null, null, null, null, null},
+				{"10.00", null, null, null, null, null, null, null},
+				{"11.00", null, null, null, null, null, null, null},
+				{"12.00", null, null, null, null, null, null, null},
+				{"13.00", null, null, null, null, null, null, null},
+				{"14.00", null, null, null, null, null, null, null},
+				{"15.00", null, null, null, null, null, null, null},
+				{"16.00", null, null, null, null, null, null, null},
+				{"17.00", null, null, null, null, null, null, null},
+				{"18.00", null, null, null, null, null, null, null},
+				{"19.00", null, null, null, null, null, null, null},
+				{"20.00", null, null, null, null, null, null, null},
+				{"21.00", null, null, null, null, null, null, null},
+				{"22.00", null, null, null, null, null, null, null},
+				{"23.00", null, null, null, null, null, null, null},
+				{"24.00", null, null, null, null, null, null, null},
+		};
+		
+		JTable table = new JTable(data, columnNames);
+		table.setBounds(20, 105, 809, 576);
+		contentPane.add(table);
+		table.setRowHeight(30);
+		table.setShowGrid(true);
+		
+		JLabel lblItIsCurrently = new JLabel("It is currently week " + Logic.getweekofyear());
+		lblItIsCurrently.setBounds(20, 40, 215, 16);
+		contentPane.add(lblItIsCurrently);
+		
+		JButton btnToday = new JButton("Today");
+		btnToday.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+			offset = 0;
+			}
+		});
+		btnToday.setBounds(655, 27, 117, 29);
+		contentPane.add(btnToday);
+		
+		JButton button = new JButton("<");
+		button.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+			Days.setOffSetMinus(1);
+			Monday.setText(Days.getMonDay());
+			lblTuesday.setText(Days.getTueDay());
+			lblWednesday.setText(Days.getWedDay());
+			lblThursday.setText(Days.getThuDay());
+			lblFriday.setText(Days.getFriDay());
+			lblSaturday.setText(Days.getSatDay());
+			lblSunday.setText(Days.getSunDay());			}
+		});
+		button.setBounds(597, 27, 45, 29);
+		contentPane.add(button);
+		
+		JButton button_1 = new JButton(">");
+		button_1.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+			Days.setOffSetPlus(7);
+			Monday.setText(Days.getMonDay());
+			lblTuesday.setText(Days.getTueDay());
+			lblWednesday.setText(Days.getWedDay());
+			lblThursday.setText(Days.getThuDay());
+			lblFriday.setText(Days.getFriDay());
+			lblSaturday.setText(Days.getSatDay());
+			lblSunday.setText(Days.getSunDay());
+			}
+		});
+		button_1.setBounds(784, 27, 45, 29);
+		contentPane.add(button_1);
+		//table.setFont(getFont().deriveFont(Font.BOLD));
 	}
 }
+
+class Days{
+	static int today = Logic.getdayofmonth();
+	static int offset = 0;
+	static int SatDay = today + 7 ;
+	static int SunDay = today + 8 ;
+	static int MonDay = today + 2 ;
+	static int TueDay = today + 3 ;
+	static int WedDay = today + 4;
+	static int ThuDay = today + 5;
+	static int FriDay = today + 6; 
 	
+//	static int SatDay = today + 7 + offset;
+//	static int SunDay = today + 8 + offset;
+//	static int MonDay = today + 2 + offset;
+//	static int TueDay = today + 3 + offset;
+//	static int WedDay = today + 4 + offset;
+//	static int ThuDay = today + 5 + offset;
+//	static int FriDay = today + 6 + offset;
+	
+	public int getOffset() {
+		return offset;
+	}
+	public static void setOffset(int off) {
+		offset += off;
+		MonDay += off;
+		TueDay += off;
+		WedDay += off;
+		FriDay += off;
+		SatDay += off;
+		SunDay += off;			
+	}
+	
+
+	public static String getSatDay() {
+		return String.valueOf(SatDay);
+	}
+	
+	public static void setOffSetMinus(int off){
+		MonDay -= off;
+		TueDay -= off;
+		WedDay -= off;
+		ThuDay -= off;
+		FriDay -= off;
+		SatDay -= off;
+		SunDay -= off;
+	}
+	
+	public static void setOffSetPlus(int off){
+		if(MonDay <= 31){
+			MonDay += off;}
+		else{
+			MonDay = 1;}
+		
+		if(TueDay <= 31){
+			TueDay += off;}
+		else{
+			TueDay = 1;}
+		
+		if(WedDay <= 31){
+			WedDay += off;}
+		else{
+			setWedDay(1);}
+			
+		if(ThuDay <= 31){
+			ThuDay += off;}
+		else{
+			ThuDay = 1;}
+		
+		if(FriDay <= 31){
+			FriDay += off;}
+		else {
+			FriDay = 1;}
+		
+		if(SatDay <= 31){
+			SatDay += off;}
+		else{
+			SatDay = 1;}
+		
+		if(SunDay <= 31){
+			SunDay += off;}
+		else {
+			SunDay = 1;}
+	}
+	
+	public static void setSatDay(int offset) {
+		SatDay = offset;
+	}
+	public static String getSunDay() {
+		return String.valueOf(SunDay);
+	}
+	public void setSunDay(int offset) {
+		SunDay = offset;
+	}
+	public static String getTueDay() {
+		return String.valueOf(TueDay);
+	}
+	public void setTueDay(int offset) {
+		TueDay = offset;
+	}
+	public static  String getWedDay() {
+		return String.valueOf(WedDay);
+	}
+	public static void setWedDay(int offset) {
+		WedDay = offset;
+	}
+	public static String getThuDay() {
+		return String.valueOf(ThuDay);
+	}
+	public void setThuDay(int offset) {
+		ThuDay = offset;
+	}
+	public static String getFriDay() {
+		return String.valueOf(FriDay);
+	}
+	public void setFriDay(int offset) {
+		FriDay = offset;
+	}
+	public static String getMonDay() {
+		return String.valueOf(MonDay);
+		
+	}
+	
+	
+}

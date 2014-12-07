@@ -38,7 +38,7 @@ public class Login extends JPanel{
 		
 		lblWelcome = new JLabel("Welcome to CBS calendar");
 		lblWelcome.setForeground(new Color(255, 192, 203)); // baby lyseroedfarve
-		lblWelcome.setBounds(179, 100, 277, 29);
+		lblWelcome.setBounds(149, 51, 277, 29);
 		lblWelcome.setFont(new Font("Tahoma", Font.BOLD, 20));
 		lblWelcome.setCursor(Cursor.getPredefinedCursor(Cursor.N_RESIZE_CURSOR));
 
@@ -46,37 +46,37 @@ public class Login extends JPanel{
 		
 		lblLogInHere = new JLabel ("Please log in here");
 		lblLogInHere.setForeground(new Color(255, 192, 203));
-		lblLogInHere.setBounds(244, 136, 148, 29);
+		lblLogInHere.setBounds(207, 115, 148, 29);
 		lblLogInHere.setFont(new Font("Tahoma", Font.PLAIN, 18));
 		add(lblLogInHere);
 		
 		lblUsername = new JLabel("Enter username here:");
 		lblUsername.setForeground(new Color(255, 192, 203));
-		lblUsername.setBounds(244, 176, 133, 14);
+		lblUsername.setBounds(222, 177, 133, 14);
 		lblUsername.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		add(lblUsername);
 		
 		lblPassword = new JLabel("Enter your password here:");
 		lblPassword.setForeground(new Color(255, 192, 203));
-		lblPassword.setBounds(244, 246, 165, 23);
+		lblPassword.setBounds(204, 242, 165, 23);
 		lblPassword.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		add(lblPassword);
 	
 		
 		enterPassword = new JPasswordField("");
 		enterPassword.setBackground(new Color(255, 240, 245));
-		enterPassword.setBounds(244, 280, 148, 29);
+		enterPassword.setBounds(207, 276, 148, 29);
 		add(enterPassword);
 		
 		enterUsername = new JTextField();
 		enterUsername.setBackground(new Color(255, 240, 245));
-		enterUsername.setBounds(244, 206, 148, 29);
+		enterUsername.setBounds(207, 202, 148, 29);
 		add(enterUsername);
 		
 		btnLogIn = new JButton("Login");
 	
 		btnLogIn.setForeground(new Color(255, 192, 203));
-		btnLogIn.setBounds(269, 317, 83, 29);
+		btnLogIn.setBounds(246, 316, 83, 29);
 		btnLogIn.setFont(new Font("Tahoma", Font.BOLD, 14));
 		btnLogIn.setBackground(new Color(255, 0, 255));
 		add(btnLogIn);
