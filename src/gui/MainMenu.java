@@ -23,6 +23,7 @@ public class MainMenu extends JPanel{
 	private JButton QOTD;
 	private JButton weather;
 	private JTextArea Quote;
+	private JButton btnCalendarWeekView;
 
 	
 
@@ -33,7 +34,7 @@ public class MainMenu extends JPanel{
 		
 	lblWelcome = new JLabel("MENU");
 	lblWelcome.setForeground(new Color(255, 192, 203));
-	lblWelcome.setBounds(257, 89, 65, 25);
+	lblWelcome.setBounds(297, 169, 65, 25);
 	lblWelcome.setFont(new Font("Tahoma", Font.BOLD, 20));
 	add(lblWelcome);
 	
@@ -41,41 +42,41 @@ public class MainMenu extends JPanel{
 	viewCalendar.setForeground(new Color(0, 0, 0));
 	viewCalendar.setBackground(new Color(255, 240, 245));
 	
-	viewCalendar.setBounds(181, 146, 208, 29);
+	viewCalendar.setBounds(217, 205, 208, 29);
 	viewCalendar.setFont(new Font("Tahoma", Font.PLAIN, 14));
 	add(viewCalendar);
 
 	QOTD = new JButton ("Quote:");
 	QOTD.setBackground(new Color(255, 240, 245));
-	QOTD.setBounds(10, 392, 208, 29);
+	QOTD.setBounds(10, 419, 208, 29);
 	QOTD.setFont(new Font("Tahoma", Font.PLAIN, 14));
 	add(QOTD);
 	
 	weather = new JButton("Weatherforecast");
 	weather.setForeground(new Color(0, 0, 0));
 	weather.setBackground(new Color(255, 240, 245));
-	weather.setBounds(181, 226, 208, 29);
+	weather.setBounds(217, 285, 208, 29);
 	weather.setFont(new Font("Tahoma", Font.PLAIN, 14));
 	add(weather);
 	
 	logOut = new JButton("Log out");
 	logOut.setBackground(new Color(255, 240, 245));
-	logOut.setBounds(482, 23, 92, 29);
+	logOut.setBounds(548, 11, 92, 29);
 	logOut.setFont(new Font("Tahoma", Font.PLAIN, 14));
 	add(logOut);
 	
 	
 	Quote = new JTextArea();
-	Quote.setBounds(226, 392, 198, 25);
+	Quote.setBounds(227, 423, 198, 25);
 	Quote.setLineWrap(true);
 	Quote.setWrapStyleWord(true);	
 	add(Quote);
 	
-	JButton btnCalendarWeekView = new JButton("Calendar week view");
+	btnCalendarWeekView = new JButton("Calendar week view");
 	btnCalendarWeekView.setForeground(Color.BLACK);
 	btnCalendarWeekView.setFont(new Font("Tahoma", Font.PLAIN, 14));
 	btnCalendarWeekView.setBackground(new Color(255, 240, 245));
-	btnCalendarWeekView.setBounds(181, 186, 208, 29);
+	btnCalendarWeekView.setBounds(217, 245, 208, 29);
 	add(btnCalendarWeekView);
 	
 	
@@ -87,6 +88,8 @@ public class MainMenu extends JPanel{
 		QOTD.addActionListener(l);
 		weather.addActionListener(l);
 		logOut.addActionListener(l);
+		btnCalendarWeekView.addActionListener(l);
+		
 		
 		
 	}
@@ -150,4 +153,16 @@ public class MainMenu extends JPanel{
 	public void setQuote(JTextArea quote) {
 		Quote = quote;
 	}
+
+
+	public JButton getBtnCalendarWeekView() {
+		return btnCalendarWeekView;
+	}
+
+
+	public void setBtnCalendarWeekView(JButton btnCalendarWeekView) {
+		this.btnCalendarWeekView = btnCalendarWeekView;
+	}
+		
+	
 }

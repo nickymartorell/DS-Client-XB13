@@ -40,17 +40,17 @@ public class Weather extends JPanel{
 		setLayout(null);
 		
 		btnMenu = new JButton ("Back to menu");
-		btnMenu.setBounds(124, 242, 208, 29);
+		btnMenu.setBounds(239, 312, 208, 29);
 		add(btnMenu);
 		
 		weather = new JLabel("Weatherforecast");
 		weather.setForeground(new Color(255, 192, 203));
-		weather.setBounds(138, 23, 174, 25);
+		weather.setBounds(239, 73, 174, 25);
 		weather.setFont(new Font("Tahoma", Font.BOLD, 20));
 		add(weather);
 		
 		scroll = new JScrollPane();
-		scroll.setBounds(19, 60, 425, 170);
+		scroll.setBounds(124, 109, 425, 170);
 		add(scroll);
 		
 	}
