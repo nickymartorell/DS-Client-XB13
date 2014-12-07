@@ -6,6 +6,7 @@ import java.io.ObjectOutputStream;
 import java.net.Socket;
 import java.net.UnknownHostException;
 
+<<<<<<< Updated upstream
 public class ServerConnection {
 
 	private String serverReply; 
@@ -29,6 +30,9 @@ public class ServerConnection {
 		}
 
 	}
+=======
+import logic.ActionController;
+>>>>>>> Stashed changes
 
 	public String getFromServer(String gsonString) throws UnknownHostException, IOException, ClassNotFoundException{
 
