@@ -55,9 +55,6 @@ public class Weather extends JPanel{
 		
 	}
 	
-	public Weather(ActionController actionController) {
-		// TODO Auto-generated constructor stub
-	}
 
 	public void NewTable(){
 		

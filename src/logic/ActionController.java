@@ -32,7 +32,7 @@ public class ActionController  {
 				
 				screen.getLogin().addActionListener(new LoginActionListener());
 				screen.getMainMenu().addActionListener(new MainMenuActionListener());
-				screen.getWeather().addActionListener(new WeatherActionListener());
+				//screen.getWeather().addActionListener(new WeatherActionListener());
 				
 			}
 		
@@ -86,13 +86,15 @@ public class ActionController  {
 
 }
 
-			private class WeatherActionListener implements ActionListener{
+/**			
+private class WeatherActionListener implements ActionListener{
 				public void actionPerformed(ActionEvent e) {
 				if (e.getSource() == Screen.getWeather().getBtnMenu()){
 					Screen.show(Screen.MAINMENU);
 				}
 			}
-			}
+			*/
+			
 
 		
 
