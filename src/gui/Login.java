@@ -32,53 +32,53 @@ public class Login extends JPanel{
 	
 	public Login (){
 		setForeground(new Color(0, 0, 255));
-		setBackground(new Color(199, 21, 133)); //staerk pink farve
+		setBackground(SystemColor.textHighlightText); //staerk pink farve
 		setLayout(null);
 
 		
-		lblWelcome = new JLabel("Welcome to CBS calendar");
-		lblWelcome.setForeground(new Color(255, 192, 203)); // baby lyseroedfarve
-		lblWelcome.setBounds(149, 51, 277, 29);
+		lblWelcome = new JLabel("Welcome to QMPE");
+		lblWelcome.setForeground(SystemColor.textHighlight); // baby lyseroedfarve
+		lblWelcome.setBounds(259, 21, 277, 29);
 		lblWelcome.setFont(new Font("Tahoma", Font.BOLD, 20));
 		lblWelcome.setCursor(Cursor.getPredefinedCursor(Cursor.N_RESIZE_CURSOR));
 
 		add(lblWelcome);
 		
-		lblLogInHere = new JLabel ("Please log in here");
-		lblLogInHere.setForeground(new Color(255, 192, 203));
-		lblLogInHere.setBounds(207, 115, 148, 29);
+		lblLogInHere = new JLabel ("Login");
+		lblLogInHere.setForeground(SystemColor.textHighlight);
+		lblLogInHere.setBounds(285, 137, 148, 29);
 		lblLogInHere.setFont(new Font("Tahoma", Font.PLAIN, 18));
 		add(lblLogInHere);
 		
-		lblUsername = new JLabel("Enter username here:");
-		lblUsername.setForeground(new Color(255, 192, 203));
-		lblUsername.setBounds(222, 177, 133, 14);
+		lblUsername = new JLabel("Username:");
+		lblUsername.setForeground(SystemColor.textHighlight);
+		lblUsername.setBounds(285, 177, 133, 14);
 		lblUsername.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		add(lblUsername);
 		
-		lblPassword = new JLabel("Enter your password here:");
-		lblPassword.setForeground(new Color(255, 192, 203));
-		lblPassword.setBounds(204, 242, 165, 23);
+		lblPassword = new JLabel("Password:");
+		lblPassword.setForeground(SystemColor.textHighlight);
+		lblPassword.setBounds(281, 242, 165, 23);
 		lblPassword.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		add(lblPassword);
 	
 		
 		enterPassword = new JPasswordField("");
-		enterPassword.setBackground(new Color(255, 240, 245));
-		enterPassword.setBounds(207, 276, 148, 29);
+		enterPassword.setBackground(SystemColor.menu);
+		enterPassword.setBounds(285, 276, 148, 29);
 		add(enterPassword);
 		
 		enterUsername = new JTextField();
-		enterUsername.setBackground(new Color(255, 240, 245));
-		enterUsername.setBounds(207, 202, 148, 29);
+		enterUsername.setBackground(SystemColor.menu);
+		enterUsername.setBounds(285, 202, 148, 29);
 		add(enterUsername);
 		
 		btnLogIn = new JButton("Login");
 	
-		btnLogIn.setForeground(new Color(255, 192, 203));
-		btnLogIn.setBounds(246, 316, 83, 29);
+		btnLogIn.setForeground(SystemColor.textHighlight);
+		btnLogIn.setBounds(315, 316, 83, 29);
 		btnLogIn.setFont(new Font("Tahoma", Font.BOLD, 14));
-		btnLogIn.setBackground(new Color(255, 0, 255));
+		btnLogIn.setBackground(SystemColor.menu);
 		add(btnLogIn);
 	
 }

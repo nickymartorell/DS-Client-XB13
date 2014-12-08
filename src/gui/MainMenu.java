@@ -12,6 +12,7 @@ import logic.ActionController;
 
 import java.awt.Color;
 import java.awt.event.ActionListener;
+import java.awt.SystemColor;
 
 
 public class MainMenu extends JPanel{
@@ -36,57 +37,75 @@ public class MainMenu extends JPanel{
 
 	public MainMenu(){
 		
-	setBackground(new Color(199, 21, 133));
+	setBackground(SystemColor.menu);
 	setLayout(null);
 		
-	lblWelcome = new JLabel("MENU");
-	lblWelcome.setBounds(314, 89, 111, 25);
-	lblWelcome.setForeground(new Color(255, 192, 203));
+	lblWelcome = new JLabel("QuoteMaster Pro Edition");
+	lblWelcome.setBounds(203, 89, 329, 25);
+	lblWelcome.setForeground(SystemColor.textHighlight);
 	lblWelcome.setFont(new Font("Tahoma", Font.BOLD, 25));
 	add(lblWelcome);
 	
 	textArea = new JTextArea("");
-	textArea.setBounds(235, 246, 356, 120);
-	textArea.setBackground(new Color(199, 21, 133));
+	textArea.setBounds(233, 199, 356, 120);
+	textArea.setBackground(SystemColor.textHighlightText);
 	textArea.setFont(new Font("Tahoma", Font.PLAIN, 12));
 	textArea.setLineWrap(true);
 	textArea.setWrapStyleWord(true);
 	add(textArea);
 	
 	textAuthor = new JTextArea("");
-	textAuthor.setBounds(233, 389, 247, 47);
-	textAuthor.setBackground(new Color(199, 21, 133));
+	textAuthor.setBounds(233, 330, 247, 47);
+	textAuthor.setBackground(SystemColor.textHighlightText);
 	textAuthor.setFont(new Font("Tahoma", Font.PLAIN, 12));
 	textAuthor.setLineWrap(true);
 	textAuthor.setWrapStyleWord(true);
 	add(textAuthor);
 	
 	topic = new JTextArea("");
-	topic.setBounds(257, 196, 247, 47);
+	topic.setBounds(235, 141, 247, 47);
 	topic.setFont(new Font("Tahoma", Font.PLAIN, 12));
 	topic.setLineWrap(true);
 	topic.setWrapStyleWord(true);
-	topic.setBackground(new Color(199, 21, 133));
+	topic.setBackground(SystemColor.textHighlightText);
 	add(topic);
 
 	QOTD = new JButton ("Quote");
 	QOTD.setBounds(10, 392, 208, 29);
-	QOTD.setBackground(new Color(255, 240, 245));
+	QOTD.setBackground(SystemColor.textHighlight);
 	QOTD.setFont(new Font("Tahoma", Font.PLAIN, 14));
 	add(QOTD);
 	
 	weather = new JButton("Weatherforecast");
-	weather.setBounds(10, 352, 208, 29);
+	weather.setBounds(473, 392, 208, 29);
 	weather.setForeground(new Color(0, 0, 0));
-	weather.setBackground(new Color(255, 240, 245));
+	weather.setBackground(SystemColor.textHighlight);
 	weather.setFont(new Font("Tahoma", Font.PLAIN, 14));
 	add(weather);
 	
 	logOut = new JButton("Log out");
-	logOut.setBounds(482, 23, 92, 29);
+	logOut.setBounds(289, 392, 92, 29);
 	logOut.setBackground(new Color(255, 240, 245));
 	logOut.setFont(new Font("Tahoma", Font.PLAIN, 14));
 	add(logOut);
+	
+	JLabel lblNewLabel = new JLabel("Topic:");
+	lblNewLabel.setFont(new Font("Tahoma", Font.PLAIN, 17));
+	lblNewLabel.setForeground(SystemColor.textHighlight);
+	lblNewLabel.setBounds(179, 141, 46, 29);
+	add(lblNewLabel);
+	
+	JLabel lblQuote = new JLabel("Quote:");
+	lblQuote.setForeground(SystemColor.textHighlight);
+	lblQuote.setFont(new Font("Tahoma", Font.PLAIN, 17));
+	lblQuote.setBounds(164, 202, 59, 29);
+	add(lblQuote);
+	
+	JLabel lblAuthor = new JLabel("Author");
+	lblAuthor.setForeground(SystemColor.textHighlight);
+	lblAuthor.setFont(new Font("Tahoma", Font.PLAIN, 17));
+	lblAuthor.setBounds(164, 330, 59, 29);
+	add(lblAuthor);
 	
 	
 	}
@@ -201,7 +220,6 @@ public class MainMenu extends JPanel{
 	public void setqTopic(String qTopic) {
 		this.qTopic = qTopic;
 	}
-		
 	}
 
 
