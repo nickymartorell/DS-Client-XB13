@@ -101,17 +101,17 @@ public class ActionController  {
 					String topic = null;
 					
 					Quote GQ = new Quote();
-					GQ.setQuote(quote);
+//					GQ.setQuote(quote);
 					String gsonString = gson.toJson(GQ);
 					try {
-						quote = sc.sendMessage(gsonString);
-						author = sc.sendMessage(gsonString);
-						topic = sc.sendMessage(gsonString);
+						gsonString = sc.sendMessage(gsonString);
+						GQ = (Quote)gson.fromJson(gsonString, Quote.class);
+						
+						quote = GQ.getQuote();
+//						author = GQ.getAuthor();
+//						topic = sc.sendMessage(gsonString);
 					}
-					catch (UnknownHostException e1) {
-						e1.printStackTrace();
-					
-					} catch (Exception e1) {
+					catch (Exception e1) {
 						// TODO Auto-generated catch block
 						e1.printStackTrace();
 					}
