@@ -5,11 +5,13 @@ public class Quote implements java.io.Serializable {
 	private String overallID = "getQuote";
 	private String quote;
 	private String author;
-	private String topic;
-
-	public String getAuthor() {
+	private String qTopic;
+	
+	
+	public String getAuthor(){
 		return author;
 	}
+	
 	public void setAuthor(String author) {
 		this.author = author;
 	}
@@ -25,10 +27,12 @@ public class Quote implements java.io.Serializable {
 	public void setQuote(String quote) {
 		this.quote = quote;
 	}
-	public String getTopic() {
-		return topic;
+	
+
+	public String getqTopic() {
+		return qTopic;
 	}
-	public void setTopic(String topic) {
-		this.topic = topic;
+	public void setqTopic(String qTopic) {
+		this.qTopic = qTopic;
 	}
 }

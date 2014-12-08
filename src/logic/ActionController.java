@@ -28,7 +28,7 @@ public class ActionController  {
 			private Gson gson;
 			private Quote quote;
 			private Quote author;
-			
+			private Quote topic;
 
 			
 			
@@ -109,13 +109,12 @@ public class ActionController  {
 //					String stringToBeReturned ="";
 					String gsonString = gson.toJson(quote);	
 					
+					
 					String currentQuote = null;
 					try
 					{		
 					currentQuote = sc.sendMessage(gsonString);
 					quote = gson.fromJson(currentQuote, Quote.class);
-					
-				//	stringToBeReturned = "Quote: "+qotd.getQuote()+"Author: "+qotd.getAuthor()+"Topic: "+ qotd.getTopic()+".";
 					screen.getMainMenu().setQuote(quote.getQuote());
 			
 					
@@ -136,13 +135,24 @@ public class ActionController  {
 					catch (Exception e1){
 						e1.printStackTrace();
 					}
+					
+					try{
+						currentQuote = sc.sendMessage(gsonString);
+						topic = gson.fromJson(currentQuote, Quote.class);
+						screen.getMainMenu().setqtopic(topic.getqTopic());
 						
+					}
+					catch (Exception e1){
+						e1.printStackTrace(); 
+					}
+					
 					
 				}
 			}
 			}
-
 }
+
+
 
 
 					
