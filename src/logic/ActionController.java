@@ -2,6 +2,7 @@ package logic;
 
 
 import shared.ServerConnection;
+import gui.MainMenu;
 import gui.Screen;
 
 import java.awt.event.ActionEvent;
@@ -100,7 +101,8 @@ public class ActionController  {
 
 
 public String getQuote()
-{
+{	
+	
 	String currentQuote = "";
 	String stringToBeReturned ="";
 	Gson gson = new GsonBuilder().create();	
@@ -143,16 +145,16 @@ public String getQuote()
 
 
 
-/**			
+	/**	
 private class WeatherActionListener implements ActionListener{
 				public void actionPerformed(ActionEvent e) {
 				if (e.getSource() == Screen.getWeather().getBtnMenu()){
 					Screen.show(Screen.MAINMENU);
 				}
 			}
-			*/
 			
-
+			
+*/
 		
 
 

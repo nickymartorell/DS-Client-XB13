@@ -22,7 +22,8 @@ public class MainMenu extends JPanel{
 	private JButton logOut;
 	private JButton QOTD;
 	private JButton weather;
-	private JTextArea Quote;
+	private JLabel labelQuote;
+	private String Quote;
 
 	
 
@@ -36,6 +37,15 @@ public class MainMenu extends JPanel{
 	lblWelcome.setBounds(257, 89, 65, 25);
 	lblWelcome.setFont(new Font("Tahoma", Font.BOLD, 20));
 	add(lblWelcome);
+	
+	labelQuote = new JLabel("prutfis");
+	labelQuote.setBackground(new Color(199, 21, 133));
+	labelQuote.setFont(new Font("Tahoma", Font.PLAIN, 10));
+	labelQuote.setBounds(241, 345, 356, 127);
+	add(labelQuote);
+	
+	
+	
 	
 	viewCalendar = new JButton("Calendar day view");
 	viewCalendar.setForeground(new Color(0, 0, 0));
@@ -64,13 +74,6 @@ public class MainMenu extends JPanel{
 	logOut.setFont(new Font("Tahoma", Font.PLAIN, 14));
 	add(logOut);
 	
-	
-	Quote = new JTextArea();
-	Quote.setBounds(226, 392, 198, 25);
-	Quote.setLineWrap(true);
-	Quote.setWrapStyleWord(true);	
-	add(Quote);
-	
 	JButton btnCalendarWeekView = new JButton("Calendar week view");
 	btnCalendarWeekView.setForeground(Color.BLACK);
 	btnCalendarWeekView.setFont(new Font("Tahoma", Font.PLAIN, 14));
@@ -91,6 +94,13 @@ public class MainMenu extends JPanel{
 		
 	}
 
+	public String getQuote(){
+		return Quote;
+	}
+	
+	public void setQuote (String Quote){
+		this.Quote = Quote;
+	}
 
 	public JLabel getLblWelcome() {
 		return lblWelcome;
@@ -142,12 +152,12 @@ public class MainMenu extends JPanel{
 	}
 
 
-	public JTextArea getQuote() {
-		return Quote;
+	public JLabel getlabelQuote() {
+		return labelQuote;
 	}
 
 
-	public void setQuote(JTextArea quote) {
-		Quote = quote;
+	public void labelQuote(JLabel quote) {
+		labelQuote = quote;
 	}
 }
