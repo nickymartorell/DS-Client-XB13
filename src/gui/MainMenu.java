@@ -18,7 +18,6 @@ public class MainMenu extends JPanel{
 	 */
 	private static final long serialVersionUID = 1L;
 	private JLabel lblWelcome;
-	private JButton viewCalendar;
 	private JButton logOut;
 	private JButton QOTD;
 	private JButton weather;
@@ -45,15 +44,6 @@ public class MainMenu extends JPanel{
 	add(labelQuote);
 	
 	
-	
-	
-	viewCalendar = new JButton("Calendar day view");
-	viewCalendar.setForeground(new Color(0, 0, 0));
-	viewCalendar.setBackground(new Color(255, 240, 245));
-	
-	viewCalendar.setBounds(181, 146, 208, 29);
-	viewCalendar.setFont(new Font("Tahoma", Font.PLAIN, 14));
-	add(viewCalendar);
 
 	QOTD = new JButton ("Quote:");
 	QOTD.setBackground(new Color(255, 240, 245));
@@ -74,22 +64,18 @@ public class MainMenu extends JPanel{
 	logOut.setFont(new Font("Tahoma", Font.PLAIN, 14));
 	add(logOut);
 	
-	JButton btnCalendarWeekView = new JButton("Calendar week view");
-	btnCalendarWeekView.setForeground(Color.BLACK);
-	btnCalendarWeekView.setFont(new Font("Tahoma", Font.PLAIN, 14));
-	btnCalendarWeekView.setBackground(new Color(255, 240, 245));
-	btnCalendarWeekView.setBounds(181, 186, 208, 29);
-	add(btnCalendarWeekView);
-	
 	
 	}
 	
 
 	public void addActionListener(ActionListener l){
-		viewCalendar.addActionListener(l);
 		QOTD.addActionListener(l);
+		QOTD.setActionCommand("QOTD");
+
 		weather.addActionListener(l);
 		logOut.addActionListener(l);
+		logOut.setActionCommand("Logout");
+
 		
 		
 	}
@@ -111,15 +97,6 @@ public class MainMenu extends JPanel{
 		this.lblWelcome = lblWelcome;
 	}
 
-
-	public JButton getViewCalendar() {
-		return viewCalendar;
-	}
-
-
-	public void setViewCalendar(JButton viewCalendar) {
-		this.viewCalendar = viewCalendar;
-	}
 
 
 	public JButton getLogOut() {

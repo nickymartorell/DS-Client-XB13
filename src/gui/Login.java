@@ -97,10 +97,6 @@ public class Login extends JPanel{
 		
 	}
 	
-	//viser, hvis password er forkert
-	public void WrongPass(){
-		lblWrongPass.setVisible(true);
-	}
 	
 	//faar fat paa username naar brugeren har indtastet username
 	public String getenterUsername(){
