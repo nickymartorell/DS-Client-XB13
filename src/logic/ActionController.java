@@ -27,6 +27,8 @@ public class ActionController  {
 			private String password; 
 			private Gson gson;
 			private Quote quote;
+			private Quote author;
+			
 
 			
 			
@@ -37,6 +39,7 @@ public class ActionController  {
 				sc = new ServerConnection();
 				gson = new GsonBuilder().create();	
 				quote = new Quote();
+				
 				
 				
 				screen.getLogin().addActionListener(new LoginActionListener());
@@ -105,26 +108,48 @@ public class ActionController  {
 //					String currentQuote = "";
 //					String stringToBeReturned ="";
 					String gsonString = gson.toJson(quote);	
+					
 					String currentQuote = null;
 					try
 					{		
 					currentQuote = sc.sendMessage(gsonString);
 					quote = gson.fromJson(currentQuote, Quote.class);
+					
 				//	stringToBeReturned = "Quote: "+qotd.getQuote()+"Author: "+qotd.getAuthor()+"Topic: "+ qotd.getTopic()+".";
 					screen.getMainMenu().setQuote(quote.getQuote());
+			
+					
+					
+				//	author = gson.fromJson(currentQuote, Quote.class);
+				//	screen.getMainMenu().setAuthor(author.getAuthor());
 					}
 					catch(Exception e1)
 					{
 						e1.printStackTrace();
 					}
+					try{
+						currentQuote = sc.sendMessage(gsonString);
+						author = gson.fromJson(currentQuote, Quote.class);
+						screen.getMainMenu().setAuthor(author.getAuthor());
+						
+					}
+					catch (Exception e1){
+						e1.printStackTrace();
+					}
+						
+					
+				}
+			}
+			}
+
+}
+
 
 					
-				}
-					
-					
-				}
+				
+				
 			
-			}
+			
 
 //public String getQuote()
 //{	
@@ -147,7 +172,7 @@ public class ActionController  {
 //}
 
 
-}
+
 			
 		/*	public class Model{
 				private View view;

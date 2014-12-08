@@ -4,7 +4,10 @@ package gui;
 import java.awt.Font;
 
 
+
+
 import javax.swing.*;
+
 import logic.ActionController;
 
 import java.awt.Color;
@@ -23,8 +26,11 @@ public class MainMenu extends JPanel{
 	private JButton weather;
 	private JTextArea textArea;
 	private String Quote;
+	private JTextArea textAuthor;
+	private String author;
 
 	
+
 
 	public MainMenu(){
 		
@@ -40,11 +46,18 @@ public class MainMenu extends JPanel{
 	textArea = new JTextArea("");
 	textArea.setBackground(new Color(199, 21, 133));
 	textArea.setBounds(241, 345, 356, 127);
-	textArea.setFont(new Font("Tahoma", Font.PLAIN, 10));
+	textArea.setFont(new Font("Tahoma", Font.PLAIN, 12));
 	textArea.setLineWrap(true);
 	textArea.setWrapStyleWord(true);
 	add(textArea);
 	
+	textAuthor = new JTextArea("");
+	textAuthor.setBounds(200, 300, 300, 90);
+	textAuthor.setBackground(new Color(199, 21, 133));
+	textAuthor.setFont(new Font("Tahoma", Font.PLAIN, 12));
+	textAuthor.setLineWrap(true);
+	textAuthor.setWrapStyleWord(true);
+	add(textAuthor);
 
 	QOTD = new JButton ("Quote");
 	QOTD.setBackground(new Color(255, 240, 245));
@@ -140,4 +153,32 @@ public class MainMenu extends JPanel{
 	public void labelQuote(JTextArea quote) {
 		textArea = quote;
 	}
-}
+	
+	
+	public JTextArea gettextAuthor(){
+		return textAuthor;
+	}
+	
+	public void textAuthor(JTextArea textAuthor){
+		this.textAuthor = textAuthor;
+	}
+	/*public void setTextAuthor(String author){
+		textAuthor.setText(author);
+	} */
+
+	public String getAuthor(){
+		return Quote;
+	}
+	
+	public void setAuthor (String author){
+		textAuthor.setText(author);
+	}
+
+
+		
+	}
+
+
+	
+
+
