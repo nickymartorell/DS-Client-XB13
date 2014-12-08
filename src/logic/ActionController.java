@@ -93,38 +93,30 @@ public class ActionController  {
 			private class MainMenuActionListener implements ActionListener{
 			public void actionPerformed(ActionEvent e){
 				if (e.getSource() == screen.getMainMenu().getQOTD()){
-				}
-			
-			
-					String quote = null;
-					String author = null;
-					String topic = null;
-					
-					Quote GQ = new Quote();
-//					GQ.setQuote(quote);
-					String gsonString = gson.toJson(GQ);
-					try {
-						gsonString = sc.sendMessage(gsonString);
-						GQ = (Quote)gson.fromJson(gsonString, Quote.class);
-						
-						quote = GQ.getQuote();
-//						author = GQ.getAuthor();
-//						topic = sc.sendMessage(gsonString);
-					}
-					catch (Exception e1) {
-						// TODO Auto-generated catch block
-						e1.printStackTrace();
-					}
-					/**
-					finally {
-						System.out.println(quote);
-						System.out.println(author);
-						System.out.println(topic);
-						}
-						*/
-
+				}			
+					getQuote();
 				}
 			}
+
+
+public String getQuote()
+{
+	String currentQuote = "";
+	String stringToBeReturned ="";
+	Gson gson = new GsonBuilder().create();	
+	Quote quote = new Quote();
+	String gsonString = gson.toJson(quote);		
+	try
+	{		
+	currentQuote = sc.sendMessage(gsonString);
+	}catch(Exception e)
+	{
+		e.printStackTrace();
+	}
+	Quote qotd = gson.fromJson(currentQuote, Quote.class);
+	stringToBeReturned = "Quote: "+qotd.getQuote()+"Author: "+qotd.getAuthor()+"Topic: "+ qotd.getTopic()+".";		
+	return stringToBeReturned;	
+}
 }
 				
 			/**
