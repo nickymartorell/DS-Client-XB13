@@ -29,7 +29,6 @@ public class MainMenu extends JPanel{
 	private String Quote;
 	private JTextArea textAuthor;
 	private String author;
-	private JTextArea topic;
 	private String qTopic;
 
 	
@@ -61,14 +60,6 @@ public class MainMenu extends JPanel{
 	textAuthor.setLineWrap(true);
 	textAuthor.setWrapStyleWord(true);
 	add(textAuthor);
-	
-	topic = new JTextArea("");
-	topic.setBounds(235, 141, 247, 47);
-	topic.setFont(new Font("Tahoma", Font.PLAIN, 12));
-	topic.setLineWrap(true);
-	topic.setWrapStyleWord(true);
-	topic.setBackground(SystemColor.textHighlightText);
-	add(topic);
 
 	QOTD = new JButton ("Quote");
 	QOTD.setBounds(10, 392, 208, 29);
@@ -88,12 +79,6 @@ public class MainMenu extends JPanel{
 	logOut.setBackground(new Color(255, 240, 245));
 	logOut.setFont(new Font("Tahoma", Font.PLAIN, 14));
 	add(logOut);
-	
-	JLabel lblNewLabel = new JLabel("Topic:");
-	lblNewLabel.setFont(new Font("Tahoma", Font.PLAIN, 17));
-	lblNewLabel.setForeground(SystemColor.textHighlight);
-	lblNewLabel.setBounds(179, 141, 46, 29);
-	add(lblNewLabel);
 	
 	JLabel lblQuote = new JLabel("Quote:");
 	lblQuote.setForeground(SystemColor.textHighlight);
@@ -204,13 +189,6 @@ public class MainMenu extends JPanel{
 
 	public JTextArea gettopic(){
 		return topic;
-	}
-	public void settopic(JTextArea topic){
-		this.topic = topic;
-	}
-	
-	public String getqTopic(){
-		return Quote;
 	}
 	public void setqtopic(String qTopic){
 		this.setqTopic(qTopic);
