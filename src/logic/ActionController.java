@@ -5,6 +5,9 @@ import gui.Screen;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.IOException;
+
+import javax.swing.JLabel;
 
 import shared.ServerConnection;
 import JsonClasses.AuthUser;
@@ -23,6 +26,7 @@ public class ActionController  {
 			private String email;
 			private String password; 
 			private Gson gson;
+			private Quote quote;
 
 			
 			
@@ -31,6 +35,8 @@ public class ActionController  {
 			public ActionController(){
 				screen = new Screen();
 				sc = new ServerConnection();
+				gson = new GsonBuilder().create();	
+				quote = new Quote();
 				
 				
 				screen.getLogin().addActionListener(new LoginActionListener());
@@ -93,39 +99,66 @@ public class ActionController  {
 					screen.show(Screen.LOGIN);
 				}
 
-				
-				
-				
-				if(cmd.equals("QOTD"))
+				else if(cmd.equals("QOTD"))
 				{			
-					getQuote();
-		
+					
+//					String currentQuote = "";
+//					String stringToBeReturned ="";
+					String gsonString = gson.toJson(quote);	
+					String currentQuote = null;
+					try
+					{		
+					currentQuote = sc.sendMessage(gsonString);
+					quote = gson.fromJson(currentQuote, Quote.class);
+				//	stringToBeReturned = "Quote: "+qotd.getQuote()+"Author: "+qotd.getAuthor()+"Topic: "+ qotd.getTopic()+".";
+					screen.getMainMenu().setQuote(quote.getQuote());
+					}
+					catch(Exception e1)
+					{
+						e1.printStackTrace();
+					}
+
+					
+				}
+					
 					
 				}
 			
 			}
 
-public String getQuote()
-{	
-	
-	String currentQuote = "";
-	String stringToBeReturned ="";
-	Gson gson = new GsonBuilder().create();	
-	Quote quote = new Quote();
-	String gsonString = gson.toJson(quote);		
-	try
-	{		
-	currentQuote = sc.sendMessage(gsonString);
-	}catch(Exception e)
-	{
-		e.printStackTrace();
-	}
-	Quote qotd = gson.fromJson(currentQuote, Quote.class);
-	stringToBeReturned = "Quote: "+qotd.getQuote()+"Author: "+qotd.getAuthor()+"Topic: "+ qotd.getTopic()+".";		
-	return stringToBeReturned;	
+//public String getQuote()
+//{	
+//	
+//	String currentQuote = "";
+//	String stringToBeReturned ="";
+//	Gson gson = new GsonBuilder().create();	
+//	Quote quote = new Quote();
+//	String gsonString = gson.toJson(quote);		
+//	try
+//	{		
+//	currentQuote = sc.sendMessage(gsonString);
+//	}catch(Exception e)
+//	{
+//		e.printStackTrace();
+//	}
+//	Quote qotd = gson.fromJson(currentQuote, Quote.class);
+//	stringToBeReturned = "Quote: "+qotd.getQuote()+"Author: "+qotd.getAuthor()+"Topic: "+ qotd.getTopic()+".";		
+//	return stringToBeReturned;	
+//}
+
+
 }
-			}
-}
+			
+		/*	public class Model{
+				private View view;
+				public Model(View view){
+					this.view = view;
+				}
+				public void changeText(){
+					view.getlabelQuote().setText(Topic);
+				}*/
+			
+			
 
 				
 	

@@ -27,7 +27,7 @@ public class Screen extends JFrame {
 	
 	public Screen(){
 		setTitle("CBS Calendar");
-		setResizable(false);
+		setResizable(true);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 600, 500);
 		contentPane = new JPanel();

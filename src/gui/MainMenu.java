@@ -3,8 +3,8 @@ package gui;
 
 import java.awt.Font;
 
-import javax.swing.*;
 
+import javax.swing.*;
 import logic.ActionController;
 
 import java.awt.Color;
@@ -21,7 +21,7 @@ public class MainMenu extends JPanel{
 	private JButton logOut;
 	private JButton QOTD;
 	private JButton weather;
-	private JLabel labelQuote;
+	private JTextArea textArea;
 	private String Quote;
 
 	
@@ -37,15 +37,16 @@ public class MainMenu extends JPanel{
 	lblWelcome.setFont(new Font("Tahoma", Font.BOLD, 20));
 	add(lblWelcome);
 	
-	labelQuote = new JLabel("prutfis");
-	labelQuote.setBackground(new Color(199, 21, 133));
-	labelQuote.setFont(new Font("Tahoma", Font.PLAIN, 10));
-	labelQuote.setBounds(241, 345, 356, 127);
-	add(labelQuote);
-	
+	textArea = new JTextArea("");
+	textArea.setBackground(new Color(199, 21, 133));
+	textArea.setBounds(241, 345, 356, 127);
+	textArea.setFont(new Font("Tahoma", Font.PLAIN, 10));
+	textArea.setLineWrap(true);
+	textArea.setWrapStyleWord(true);
+	add(textArea);
 	
 
-	QOTD = new JButton ("Quote:");
+	QOTD = new JButton ("Quote");
 	QOTD.setBackground(new Color(255, 240, 245));
 	QOTD.setBounds(10, 392, 208, 29);
 	QOTD.setFont(new Font("Tahoma", Font.PLAIN, 14));
@@ -71,21 +72,23 @@ public class MainMenu extends JPanel{
 	public void addActionListener(ActionListener l){
 		QOTD.addActionListener(l);
 		QOTD.setActionCommand("QOTD");
+		
 
 		weather.addActionListener(l);
 		logOut.addActionListener(l);
 		logOut.setActionCommand("Logout");
 
 		
-		
 	}
+	
 
+	
 	public String getQuote(){
 		return Quote;
 	}
 	
-	public void setQuote (String Quote){
-		this.Quote = Quote;
+	public void setQuote (String quote){
+		textArea.setText(quote);
 	}
 
 	public JLabel getLblWelcome() {
@@ -129,12 +132,12 @@ public class MainMenu extends JPanel{
 	}
 
 
-	public JLabel getlabelQuote() {
-		return labelQuote;
+	public JTextArea getlabelQuote() {
+		return textArea;
 	}
 
 
-	public void labelQuote(JLabel quote) {
-		labelQuote = quote;
+	public void labelQuote(JTextArea quote) {
+		textArea = quote;
 	}
 }
